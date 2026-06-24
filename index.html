@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowBest Y&D · Jabones y cuidado artesanal de la piel</title>
+    <meta name="description" content="GlowBest Y&D — jabones, cremas y aceites artesanales para el cuidado natural de la piel. Hechos a mano en Miami, Florida.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Marcellus&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,13 +32,14 @@
         .btn-linea:hover { background:var(--cafe); color:#fff; }
 
         /* MENU FIJO Y DISCRETO */
-        header { position:sticky; top:0; z-index:50; background:rgba(245,239,230,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(229,216,196,0.6); }
+        header { position:sticky; top:0; z-index:50; background:rgba(245,239,230,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(229,216,196,0.6); transition:box-shadow 0.3s, background 0.3s; }
+        header.scrolled { background:rgba(245,239,230,0.97); box-shadow:0 4px 22px rgba(94,63,40,0.09); }
         .nav-bar { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:13px 0; }
         .brand { text-decoration:none; }
         .brand .name { font-family:'Marcellus',serif; font-size:1.75rem; font-weight:400; letter-spacing:1px; color:var(--cafe-osc); }
         nav { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
         nav a { text-decoration:none; color:var(--texto); font-weight:600; font-size:0.76rem; letter-spacing:1.4px; text-transform:uppercase; padding-bottom:3px; border-bottom:2px solid transparent; transition:0.2s; }
-        nav a:hover { color:var(--cafe); border-bottom-color:var(--cafe); }
+        nav a:hover, nav a.active { color:var(--cafe); border-bottom-color:var(--cafe); }
         .actions { display:flex; align-items:center; gap:12px; }
         .lang-toggle { display:inline-flex; border:1px solid var(--linea); border-radius:6px; overflow:hidden; }
         .lang-toggle button { background:transparent; border:none; padding:6px 11px; font-size:0.72rem; font-weight:700; letter-spacing:1px; cursor:pointer; color:var(--suave); }
@@ -68,15 +70,18 @@
         .cabeza .linea { width:56px; height:3px; background:var(--olivo); border-radius:2px; margin:16px auto 0; }
 
         .productos { padding:90px 0; }
-        .rejilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:30px; }
-        .card { background:var(--tarjeta); border:1px solid var(--linea); border-radius:14px; padding:30px 28px; text-align:center; display:flex; flex-direction:column; box-shadow:0 10px 30px rgba(94,63,40,0.06); transition:transform 0.25s,box-shadow 0.25s; }
-        .card:hover { transform:translateY(-6px); box-shadow:0 22px 46px rgba(94,63,40,0.13); }
-        .card .foto { width:168px; height:168px; margin:0 auto 20px; border-radius:50%; background:var(--crema); display:flex; align-items:center; justify-content:center; border:1px solid var(--linea); overflow:hidden; cursor:pointer; }
-        .card .foto img { width:100%; height:100%; object-fit:cover; }
-        .card h3 { font-size:1.6rem; margin-bottom:6px; color:var(--cafe-osc); }
-        .card p { font-size:0.95rem; color:var(--suave); margin-bottom:12px; flex-grow:1; }
-        .card .precio { color:var(--cafe); font-weight:700; font-size:1.15rem; font-family:'Mulish',sans-serif; margin-bottom:18px; }
-        .card .btn { width:100%; }
+        .rejilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:26px; }
+        .card { background:var(--tarjeta); border:1px solid var(--linea); border-radius:16px; overflow:hidden; text-align:left; display:flex; flex-direction:column; box-shadow:0 6px 20px rgba(94,63,40,0.05); transition:transform 0.25s,box-shadow 0.25s; }
+        .card:hover { transform:translateY(-6px); box-shadow:0 20px 44px rgba(94,63,40,0.14); }
+        .card .foto { width:100%; aspect-ratio:1/1; background:var(--crema); overflow:hidden; cursor:pointer; }
+        .card .foto img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+        .card:hover .foto img { transform:scale(1.06); }
+        .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex-grow:1; }
+        .card h3 { font-size:1.3rem; margin-bottom:4px; color:var(--cafe-osc); }
+        .card-body p { font-size:0.9rem; color:var(--suave); margin-bottom:16px; flex-grow:1; }
+        .precio-row { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+        .precio-row .precio { color:var(--cafe-osc); font-weight:700; font-size:1.12rem; font-family:'Mulish',sans-serif; }
+        .precio-row .btn { padding:10px 18px; font-size:0.74rem; white-space:nowrap; }
 
         .nosotros { background:var(--crema-2); padding:90px 0; }
         .nosotros .grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
@@ -109,12 +114,31 @@
         footer .links a:hover { color:#fff; }
         footer .copy { font-size:0.78rem; color:#B79E84; margin-top:12px; }
 
-        .wa-float { position:fixed; right:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; }
+        .wa-float { position:fixed; right:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
+        .wa-float.show { opacity:1; visibility:visible; transform:none; }
         .wa-float svg { width:30px; height:30px; color:#fff; }
 
         .js .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
         .js .reveal.visible { opacity:1; transform:none; }
         @media (prefers-reduced-motion: reduce) { .js .reveal { opacity:1; transform:none; transition:none; } }
+
+        /* ASISTENTE VIRTUAL (Gemini) */
+        .bot-btn { position:fixed; left:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--cafe); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; cursor:pointer; border:none; }
+        .bot-btn svg { width:28px; height:28px; color:#fff; }
+        .bot-panel { position:fixed; left:20px; bottom:86px; width:340px; max-width:calc(100vw - 40px); height:460px; max-height:calc(100vh - 120px); background:var(--crema); border:1px solid var(--linea); border-radius:16px; box-shadow:0 20px 50px rgba(0,0,0,0.25); display:none; flex-direction:column; overflow:hidden; z-index:121; }
+        .bot-panel.open { display:flex; }
+        .bot-head { background:var(--cafe-osc); color:#fff; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; }
+        .bot-head .bt { font-family:'Marcellus',serif; font-size:1.05rem; }
+        .bot-head .bs { font-size:0.68rem; color:#D8C7AE; }
+        .bot-close { background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer; line-height:1; }
+        .bot-msgs { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+        .msg { max-width:85%; padding:10px 14px; border-radius:14px; font-size:0.9rem; line-height:1.5; white-space:pre-wrap; }
+        .msg.bot { background:#fff; border:1px solid var(--linea); align-self:flex-start; border-bottom-left-radius:4px; color:var(--texto); }
+        .msg.user { background:var(--cafe); color:#fff; align-self:flex-end; border-bottom-right-radius:4px; }
+        .bot-input { display:flex; gap:8px; padding:12px; border-top:1px solid var(--linea); }
+        .bot-input input { flex:1; border:1px solid var(--linea); border-radius:20px; padding:10px 14px; font-family:'Mulish',sans-serif; font-size:0.9rem; outline:none; background:#fff; }
+        .bot-input button { background:var(--cafe); color:#fff; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; flex:none; display:flex; align-items:center; justify-content:center; }
+        .bot-input button svg { width:18px; height:18px; }
 
         .modal-overlay,.cart-overlay { position:fixed; inset:0; background:rgba(58,46,37,0.45); display:none; z-index:200; }
         .modal-overlay.open { display:flex; align-items:center; justify-content:center; padding:24px; }
@@ -302,6 +326,21 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
     </a>
 
+    <button class="bot-btn" id="bot-btn" onclick="toggleBot()" aria-label="Asistente virtual">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>
+    </button>
+    <div class="bot-panel" id="bot-panel">
+        <div class="bot-head">
+            <div><div class="bt">Asistente GlowBest</div><div class="bs" data-es="Pregúntame sobre los productos" data-en="Ask me about the products">Pregúntame sobre los productos</div></div>
+            <button class="bot-close" onclick="toggleBot()" aria-label="Cerrar">×</button>
+        </div>
+        <div class="bot-msgs" id="bot-msgs"></div>
+        <div class="bot-input">
+            <input id="bot-text" type="text" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')botSend()">
+            <button onclick="botSend()" aria-label="Enviar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="modal">
         <div class="modal">
             <button class="modal-close" onclick="closeModal()">×</button>
@@ -331,6 +370,15 @@
 
     <script>
         var WA = '18633380581';
+
+        /* ====== ASISTENTE VIRTUAL (Gemini) ======
+           1) Consigue tu clave gratis en https://aistudio.google.com  ("Get API key")
+           2) Pega la clave entre las comillas de GEMINI_API_KEY.
+           IMPORTANTE: en una pagina publica la clave queda a la vista. Restringela en
+           Google AI Studio a "Generative Language API" y a tu sitio, y pon un limite de
+           gasto. Lo mas seguro es usar un pequeno servidor intermedio (ver chat). */
+        var GEMINI_API_KEY = '';
+        var GEMINI_MODEL = 'gemini-2.5-flash';
 
         /* ====== LISTA DE PRODUCTOS (edita nombre, descripcion y PRECIO) ======
            "precio": pon el numero, ej. 8.50. Si lo dejas en 0 muestra "Precio a consultar". */
@@ -368,10 +416,12 @@
         function renderProducts(){
             document.getElementById('rejilla').innerHTML = productos.map(function(p){
                 return '<div class="card">'+
-                  '<div class="foto" onclick="openProduct(\''+p.id+'\')"><img src="'+p.img+'" alt="'+p.nombre[lang]+'"></div>'+
-                  '<h3>'+p.nombre[lang]+'</h3><p>'+p.desc[lang]+'</p>'+
-                  '<div class="precio">'+priceText(p.precio)+'</div>'+
-                  '<button class="btn btn-cafe" onclick="openProduct(\''+p.id+'\')">'+T[lang].viewProduct+'</button>'+
+                  '<div class="foto" onclick="openProduct(\''+p.id+'\')"><img src="'+p.img+'" alt="'+p.nombre[lang]+'" loading="lazy"></div>'+
+                  '<div class="card-body">'+
+                    '<h3>'+p.nombre[lang]+'</h3><p>'+p.desc[lang]+'</p>'+
+                    '<div class="precio-row"><span class="precio">'+priceText(p.precio)+'</span>'+
+                    '<button class="btn btn-cafe" onclick="openProduct(\''+p.id+'\')">'+T[lang].viewProduct+'</button></div>'+
+                  '</div>'+
                 '</div>';
             }).join('');
             applyReveal();
@@ -431,6 +481,40 @@
             if(document.getElementById('modal').classList.contains('open') && modalId){ openProduct(modalId); }
         }
 
+        /* asistente virtual */
+        var botHistory = [];
+        function botContext(){
+            var info = productos.map(function(p){
+                var pr = p.precio>0 ? ('$'+p.precio.toFixed(2)) : 'a consultar';
+                return '- '+p.nombre.es+': '+p.detalle.es+' (precio: '+pr+')';
+            }).join('\n');
+            return 'Eres el asistente virtual de GlowBest Y&D, una marca artesanal de jabones, cremas y aceites para el cuidado de la piel en Miami, Florida. Responde de forma amable, breve y calida. Habla solo de los productos, ingredientes, cuidado de la piel y la marca. Si un precio aparece como "a consultar", invita a escribir por WhatsApp al (863) 338-0581. Responde en el mismo idioma en que te escriban. No inventes productos ni precios. Productos:\n'+info+'\nContacto: WhatsApp (863) 338-0581, Instagram @yarenitagonzalez, email glowbestyd8996@gmail.com.';
+        }
+        function toggleBot(){
+            var p=document.getElementById('bot-panel'); p.classList.toggle('open');
+            if(p.classList.contains('open')){
+                document.getElementById('bot-text').focus();
+                if(botHistory.length===0){ addBotMsg(lang==='es'?'¡Hola! Soy el asistente de GlowBest. ¿En qué puedo ayudarte con nuestros productos?':'Hi! I am the GlowBest assistant. How can I help you with our products?','bot'); }
+            }
+        }
+        function addBotMsg(text,who){ var m=document.createElement('div'); m.className='msg '+who; m.textContent=text; var c=document.getElementById('bot-msgs'); c.appendChild(m); c.scrollTop=c.scrollHeight; return m; }
+        function botSend(){
+            var inp=document.getElementById('bot-text'); var q=inp.value.trim(); if(!q) return;
+            inp.value=''; addBotMsg(q,'user'); botHistory.push({role:'user',text:q});
+            if(!GEMINI_API_KEY){ addBotMsg(lang==='es'?'El asistente todavía no está activado: falta poner la clave de Gemini en el código.':'The assistant is not active yet: the Gemini key is missing in the code.','bot'); return; }
+            var typing=addBotMsg('…','bot');
+            var contents=botHistory.map(function(h){ return {role:h.role, parts:[{text:h.text}]}; });
+            fetch('https://generativelanguage.googleapis.com/v1beta/models/'+GEMINI_MODEL+':generateContent',{
+                method:'POST',
+                headers:{'Content-Type':'application/json','x-goog-api-key':GEMINI_API_KEY},
+                body:JSON.stringify({ system_instruction:{parts:[{text:botContext()}]}, contents:contents })
+            }).then(function(r){ return r.json(); }).then(function(d){
+                var txt=(d.candidates&&d.candidates[0]&&d.candidates[0].content&&d.candidates[0].content.parts&&d.candidates[0].content.parts[0].text)?d.candidates[0].content.parts[0].text.trim():(lang==='es'?'Lo siento, no pude responder ahora.':'Sorry, I could not answer right now.');
+                typing.textContent=txt; botHistory.push({role:'model',text:txt});
+                document.getElementById('bot-msgs').scrollTop=document.getElementById('bot-msgs').scrollHeight;
+            }).catch(function(){ typing.textContent=(lang==='es'?'Hubo un problema de conexión. Intenta de nuevo.':'Connection problem. Please try again.'); });
+        }
+
         /* animaciones suaves al hacer scroll */
         document.documentElement.classList.add('js');
         var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
@@ -446,6 +530,22 @@
         document.getElementById('modal').addEventListener('click',function(e){ if(e.target.id==='modal') closeModal(); });
         document.getElementById('cart').addEventListener('click',function(e){ if(e.target.id==='cart') closeCart(); });
         document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeModal(); closeCart(); } });
+        /* mostrar/ocultar boton de WhatsApp al hacer scroll + sombra de header + menu activo */
+        var waFloat = document.querySelector('.wa-float');
+        var headerEl = document.querySelector('header');
+        var navLinks = [].slice.call(document.querySelectorAll('nav a[href^="#"]'));
+        var navSections = navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+        function onScroll(){
+            var y = window.scrollY || window.pageYOffset || 0;
+            if(waFloat){ waFloat.classList.toggle('show', y > 320); }
+            if(headerEl){ headerEl.classList.toggle('scrolled', y > 20); }
+            var idx = -1;
+            for(var i=0;i<navSections.length;i++){ var s=navSections[i]; if(s && s.getBoundingClientRect().top <= 130) idx=i; }
+            navLinks.forEach(function(a,i){ a.classList.toggle('active', i===idx); });
+        }
+        window.addEventListener('scroll', onScroll, { passive:true });
+        onScroll();
+
         setLang('es'); updateBadge(); applyReveal();
     </script>
 </body>
