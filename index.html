@@ -41,6 +41,11 @@
         nav a { text-decoration:none; color:var(--texto); font-weight:600; font-size:0.76rem; letter-spacing:1.4px; text-transform:uppercase; padding-bottom:3px; border-bottom:2px solid transparent; transition:0.2s; }
         nav a:hover, nav a.active { color:var(--cafe); border-bottom-color:var(--cafe); }
         .actions { display:flex; align-items:center; gap:12px; }
+        .menu-toggle { display:none; background:none; border:none; cursor:pointer; color:var(--cafe-osc); padding:6px; align-items:center; justify-content:center; }
+        .menu-toggle svg { width:26px; height:26px; }
+        .menu-toggle .ic-close { display:none; }
+        header.nav-open .menu-toggle .ic-open { display:none; }
+        header.nav-open .menu-toggle .ic-close { display:block; }
         .lang-toggle { display:inline-flex; border:1px solid var(--linea); border-radius:6px; overflow:hidden; }
         .lang-toggle button { background:transparent; border:none; padding:6px 11px; font-size:0.72rem; font-weight:700; letter-spacing:1px; cursor:pointer; color:var(--suave); }
         .lang-toggle button.active { background:var(--cafe); color:#fff; }
@@ -70,7 +75,7 @@
         .cabeza .linea { width:56px; height:3px; background:var(--olivo); border-radius:2px; margin:16px auto 0; }
 
         .productos { padding:90px 0; }
-        .rejilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:26px; }
+        .rejilla { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
         .card { background:var(--tarjeta); border:1px solid var(--linea); border-radius:16px; overflow:hidden; text-align:left; display:flex; flex-direction:column; box-shadow:0 6px 20px rgba(94,63,40,0.05); transition:transform 0.25s,box-shadow 0.25s; }
         .card:hover { transform:translateY(-6px); box-shadow:0 20px 44px rgba(94,63,40,0.14); }
         .card .foto { width:100%; aspect-ratio:1/1; background:var(--crema); overflow:hidden; cursor:pointer; }
@@ -122,8 +127,15 @@
         .js .reveal.visible { opacity:1; transform:none; }
         @media (prefers-reduced-motion: reduce) { .js .reveal { opacity:1; transform:none; transition:none; } }
 
+        /* boton volver arriba */
+        .to-top { position:fixed; right:20px; bottom:86px; width:46px; height:46px; border-radius:50%; background:var(--tarjeta); border:1px solid var(--linea); color:var(--cafe-osc); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(94,63,40,0.15); cursor:pointer; z-index:120; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
+        .to-top.show { opacity:1; visibility:visible; transform:none; }
+        .to-top:hover { background:var(--crema-2); }
+        .to-top svg { width:20px; height:20px; }
+
         /* ASISTENTE VIRTUAL (Gemini) */
-        .bot-btn { position:fixed; left:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--cafe); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; cursor:pointer; border:none; }
+        .bot-btn { position:fixed; left:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--cafe); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; cursor:pointer; border:none; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
+        .bot-btn.show { opacity:1; visibility:visible; transform:none; }
         .bot-btn svg { width:28px; height:28px; color:#fff; }
         .bot-panel { position:fixed; left:20px; bottom:86px; width:340px; max-width:calc(100vw - 40px); height:460px; max-height:calc(100vh - 120px); background:var(--crema); border:1px solid var(--linea); border-radius:16px; box-shadow:0 20px 50px rgba(0,0,0,0.25); display:none; flex-direction:column; overflow:hidden; z-index:121; }
         .bot-panel.open { display:flex; }
@@ -185,9 +197,18 @@
             .valores .grid { grid-template-columns:repeat(2,1fr); gap:30px 18px; }
             .cabeza h2,.nosotros h2 { font-size:2.2rem; }
             .banner img { height:58vh; }
+            .rejilla { grid-template-columns:repeat(2,1fr); }
+        }
+        /* MENU HAMBURGUESA EN CELULAR */
+        @media (max-width:760px) {
+            .menu-toggle { display:inline-flex; }
+            nav { position:absolute; top:100%; left:0; right:0; display:none; flex-direction:column; align-items:stretch; gap:0; background:rgba(245,239,230,0.98); backdrop-filter:blur(10px); border-bottom:1px solid var(--linea); padding:6px 0; box-shadow:0 14px 26px rgba(94,63,40,0.10); }
+            header.nav-open nav { display:flex; }
+            nav a { padding:13px 28px; border-bottom:none; border-left:3px solid transparent; }
+            nav a:hover, nav a.active { border-bottom-color:transparent; border-left-color:var(--cafe); background:rgba(229,216,196,0.45); }
         }
         @media (max-width:640px) { .modal-grid { grid-template-columns:1fr; } .modal-foto { border-radius:16px 16px 0 0; } .contacto .tarjeta { padding:14px 24px; } }
-        @media (max-width:560px) { .nav-bar { justify-content:center; } nav { justify-content:center; gap:14px; } }
+        @media (max-width:560px) { .rejilla { grid-template-columns:1fr; } .brand .name { font-size:1.5rem; } }
     </style>
 </head>
 <body>
@@ -209,6 +230,10 @@
                 <button class="cart-btn" onclick="openCart()" aria-label="Carrito">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                     <span id="cart-count" class="badge">0</span>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()" aria-label="Menú">
+                    <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                    <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
                 </button>
             </div>
         </div>
@@ -321,6 +346,10 @@
             <div class="copy">© 2026 GlowBest Y&D · Miami, Florida</div>
         </div>
     </footer>
+
+    <button class="to-top" id="to-top" onclick="scrollTop()" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
 
     <a class="wa-float" href="https://wa.me/18633380581" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
@@ -530,14 +559,24 @@
         document.getElementById('modal').addEventListener('click',function(e){ if(e.target.id==='modal') closeModal(); });
         document.getElementById('cart').addEventListener('click',function(e){ if(e.target.id==='cart') closeCart(); });
         document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeModal(); closeCart(); } });
-        /* mostrar/ocultar boton de WhatsApp al hacer scroll + sombra de header + menu activo */
+        /* botones flotantes + sombra de header + menu activo + hamburguesa */
         var waFloat = document.querySelector('.wa-float');
+        var botBtn = document.getElementById('bot-btn');
+        var toTopBtn = document.getElementById('to-top');
         var headerEl = document.querySelector('header');
         var navLinks = [].slice.call(document.querySelectorAll('nav a[href^="#"]'));
         var navSections = navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+
+        function toggleMenu(){ headerEl.classList.toggle('nav-open'); }
+        function scrollTop(){ window.scrollTo({ top:0, behavior:'smooth' }); }
+        navLinks.forEach(function(a){ a.addEventListener('click', function(){ headerEl.classList.remove('nav-open'); }); });
+
         function onScroll(){
             var y = window.scrollY || window.pageYOffset || 0;
-            if(waFloat){ waFloat.classList.toggle('show', y > 320); }
+            var show = y > 320;
+            if(waFloat){ waFloat.classList.toggle('show', show); }
+            if(botBtn){ botBtn.classList.toggle('show', show); }
+            if(toTopBtn){ toTopBtn.classList.toggle('show', show); }
             if(headerEl){ headerEl.classList.toggle('scrolled', y > 20); }
             var idx = -1;
             for(var i=0;i<navSections.length;i++){ var s=navSections[i]; if(s && s.getBoundingClientRect().top <= 130) idx=i; }
