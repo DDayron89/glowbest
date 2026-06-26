@@ -1,66 +1,166 @@
 <!DOCTYPE html>
 <!--
   GlowBest Y&D - index.html
-  Menu fijo discreto, imagen a todo lo ancho, botones finos, ventana de producto,
-  carrito, Instagram, boton flotante de WhatsApp y contacto ordenado.
+  Sitio de una sola pagina, autocontenido. Identidad vintage (paleta crema/cafe/olivo,
+  tipografias Cormorant Garamond / Marcellus / Mulish).
   >>> PARA PONER PRECIOS: baja hasta "LISTA DE PRODUCTOS" y cambia "precio".
+  >>> PARA EL ASISTENTE: pega tu clave de Gemini en GEMINI_API_KEY.
+  >>> SEO: reemplaza https://glowbestyd.com/ por tu dominio real (canonical y og:url/og:image).
 -->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowBest Y&D · Jabones y cuidado artesanal de la piel</title>
-    <meta name="description" content="GlowBest Y&D — jabones, cremas y aceites artesanales para el cuidado natural de la piel. Hechos a mano en Miami, Florida.">
+    <title>GlowBest Y&amp;D · Jabones y cuidado artesanal de la piel | Miami, FL</title>
+    <meta name="description" content="GlowBest Y&amp;D — jabones, cremas y aceites artesanales para el cuidado natural de la piel. Hechos a mano en pequeñas tandas en Miami, Florida.">
+    <meta name="author" content="GlowBest Y&amp;D">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#5E3F28">
+    <link rel="canonical" href="https://glowbestyd.com/">
+
+    <!-- Open Graph / redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GlowBest Y&amp;D">
+    <meta property="og:title" content="GlowBest Y&amp;D · Cuidado artesanal de la piel">
+    <meta property="og:description" content="Jabones, cremas y aceites hechos a mano en pequeñas tandas con ingredientes naturales. Miami, Florida.">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:url" content="https://glowbestyd.com/">
+    <meta property="og:image" content="https://glowbestyd.com/images/hero.jpg.jpeg">
+    <meta property="og:image:alt" content="Colección GlowBest Y&amp;D de cuidado natural de la piel">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GlowBest Y&amp;D · Cuidado artesanal de la piel">
+    <meta name="twitter:description" content="Jabones, cremas y aceites hechos a mano en Miami, Florida.">
+    <meta name="twitter:image" content="https://glowbestyd.com/images/hero.jpg.jpeg">
+
+    <!-- Favicon (monograma vintage en SVG, sin archivo extra) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235E3F28'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23F5EFE6' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235E3F28'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23F5EFE6' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+
+    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Marcellus&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Precarga de la imagen principal (mejora la velocidad percibida) -->
+    <link rel="preload" as="image" href="images/hero.jpg.jpeg" fetchpriority="high">
+
+    <!-- Datos estructurados para Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "GlowBest Y&D",
+      "description": "Jabones, cremas y aceites artesanales para el cuidado natural de la piel, hechos a mano en pequeñas tandas en Miami, Florida.",
+      "image": "https://glowbestyd.com/images/hero.jpg.jpeg",
+      "url": "https://glowbestyd.com/",
+      "telephone": "+1-863-338-0581",
+      "email": "glowbestyd8996@gmail.com",
+      "priceRange": "$$",
+      "areaServed": "Miami, Florida, United States",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://www.instagram.com/yarenitagonzalez"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Sus productos son naturales?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Elaboramos nuestros jabones, cremas y aceites con ingredientes naturales, como aceites y extractos de plantas, en pequeñas tandas." } },
+        { "@type": "Question", "name": "¿Son aptos para piel sensible?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras fórmulas son suaves y están pensadas para cuidar incluso la piel más sensible." } }
+      ]
+    }
+    </script>
+
     <style>
-        :root { --crema:#F5EFE6; --crema-2:#EDE2D0; --tarjeta:#FFFDF9; --cafe:#8B5E3C; --cafe-osc:#5E3F28; --olivo:#8A9A77; --texto:#3A2E25; --suave:#6E5E50; --linea:#E5D8C4; }
+        :root {
+            --crema:#F5EFE6; --crema-2:#EDE2D0; --tarjeta:#FFFDF9;
+            --cafe:#8B5E3C; --cafe-osc:#5E3F28;
+            --olivo:#8A9A77;            /* acento decorativo */
+            --olivo-d:#5F6E4A;          /* olivo oscuro: texto accesible (cumple AA) */
+            --texto:#3A2E25; --suave:#6E5E50; --linea:#E5D8C4;
+            --sombra-sm:0 6px 20px rgba(94,63,40,0.06);
+            --sombra-md:0 14px 40px rgba(94,63,40,0.10);
+            --sombra-lg:0 22px 60px rgba(94,63,40,0.16);
+            --header-h:66px;
+        }
         * { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:'Mulish',-apple-system,'Segoe UI',sans-serif; color:var(--texto); background:var(--crema); line-height:1.7; }
+        html { scroll-behavior:smooth; scroll-padding-top:calc(var(--header-h) + 16px); }
+        body { font-family:'Mulish',-apple-system,'Segoe UI',sans-serif; color:var(--texto); background:var(--crema); line-height:1.7; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
         h1,h2,h3,h4 { font-family:'Cormorant Garamond',Georgia,serif; color:var(--cafe-osc); line-height:1.15; font-weight:600; }
         img { max-width:100%; display:block; }
         a { color:inherit; }
         .wrap { max-width:1140px; margin:0 auto; padding:0 28px; }
-        .eyebrow { font-size:0.72rem; letter-spacing:3.5px; text-transform:uppercase; color:var(--olivo); font-weight:700; }
+        .eyebrow { font-size:0.72rem; letter-spacing:3.5px; text-transform:uppercase; color:var(--olivo-d); font-weight:700; }
 
-        .btn { display:inline-block; cursor:pointer; border:none; font-family:'Mulish',sans-serif; font-weight:600; font-size:0.82rem; letter-spacing:1px; text-decoration:none; padding:13px 30px; border-radius:6px; transition:background-color 0.2s,color 0.2s; }
+        /* Foco visible y accesible (no se pierde el teclado) */
+        :focus-visible { outline:2.5px solid var(--cafe); outline-offset:3px; border-radius:4px; }
+        a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline:none; }
+
+        /* Salto al contenido para lectores de pantalla / teclado */
+        .skip-link { position:absolute; left:-999px; top:0; z-index:300; background:var(--cafe-osc); color:#fff; padding:12px 20px; border-radius:0 0 8px 0; font-weight:700; font-size:0.85rem; }
+        .skip-link:focus { left:0; }
+
+        .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; border:none; font-family:'Mulish',sans-serif; font-weight:600; font-size:0.82rem; letter-spacing:1px; text-decoration:none; padding:13px 30px; border-radius:6px; transition:background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .btn:active { transform:translateY(1px); }
         .btn-cafe { background:var(--cafe); color:#fff; }
-        .btn-cafe:hover { background:var(--cafe-osc); }
+        .btn-cafe:hover { background:var(--cafe-osc); box-shadow:var(--sombra-sm); }
         .btn-linea { background:transparent; color:var(--cafe-osc); border:1px solid var(--cafe); }
         .btn-linea:hover { background:var(--cafe); color:#fff; }
+        .btn-crema { background:var(--crema); color:var(--cafe-osc); }
+        .btn-crema:hover { background:#fff; box-shadow:var(--sombra-md); }
+        .btn-ghost { background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.75); backdrop-filter:blur(2px); }
+        .btn-ghost:hover { background:#fff; color:var(--cafe-osc); }
+
+        /* BARRA DE ANUNCIO */
+        .topbar { background:var(--cafe-osc); color:#EBDFCF; text-align:center; font-size:0.72rem; letter-spacing:1.6px; text-transform:uppercase; padding:7px 14px; font-weight:600; }
+        .topbar span { opacity:0.92; }
 
         /* MENU FIJO Y DISCRETO */
         header { position:sticky; top:0; z-index:50; background:rgba(245,239,230,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(229,216,196,0.6); transition:box-shadow 0.3s, background 0.3s; }
         header.scrolled { background:rgba(245,239,230,0.97); box-shadow:0 4px 22px rgba(94,63,40,0.09); }
-        .nav-bar { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:13px 0; }
+        .nav-bar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0; min-height:var(--header-h); }
         .brand { text-decoration:none; }
         .brand .name { font-family:'Marcellus',serif; font-size:1.75rem; font-weight:400; letter-spacing:1px; color:var(--cafe-osc); }
-        nav { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+        nav { display:flex; align-items:center; gap:24px; }
         nav a { text-decoration:none; color:var(--texto); font-weight:600; font-size:0.76rem; letter-spacing:1.4px; text-transform:uppercase; padding-bottom:3px; border-bottom:2px solid transparent; transition:0.2s; }
         nav a:hover, nav a.active { color:var(--cafe); border-bottom-color:var(--cafe); }
         .actions { display:flex; align-items:center; gap:12px; }
+        .menu-toggle { display:none; background:none; border:none; cursor:pointer; color:var(--cafe-osc); padding:6px; align-items:center; justify-content:center; }
+        .menu-toggle svg { width:26px; height:26px; }
+        .menu-toggle .ic-close { display:none; }
+        header.nav-open .menu-toggle .ic-open { display:none; }
+        header.nav-open .menu-toggle .ic-close { display:block; }
         .lang-toggle { display:inline-flex; border:1px solid var(--linea); border-radius:6px; overflow:hidden; }
         .lang-toggle button { background:transparent; border:none; padding:6px 11px; font-size:0.72rem; font-weight:700; letter-spacing:1px; cursor:pointer; color:var(--suave); }
-        .lang-toggle button.active { background:var(--cafe); color:#fff; }
+        .lang-toggle button[aria-pressed="true"] { background:var(--cafe); color:#fff; }
         .cart-btn { position:relative; background:transparent; border:none; cursor:pointer; color:var(--cafe-osc); padding:6px; }
         .cart-btn svg { width:24px; height:24px; }
-        .badge { position:absolute; top:-2px; right:-4px; background:var(--olivo); color:#fff; font-size:0.64rem; font-weight:700; min-width:17px; height:17px; border-radius:50%; display:none; align-items:center; justify-content:center; padding:0 4px; }
+        .badge { position:absolute; top:-2px; right:-4px; background:var(--olivo-d); color:#fff; font-size:0.64rem; font-weight:700; min-width:17px; height:17px; border-radius:50%; display:none; align-items:center; justify-content:center; padding:0 4px; }
 
-        /* IMAGEN A TODO LO ANCHO */
-        .banner { position:relative; }
-        .banner img { width:100%; height:78vh; min-height:420px; max-height:760px; object-fit:cover; object-position:center; }
-        .banner::after { content:""; position:absolute; left:0; right:0; bottom:0; height:90px; background:linear-gradient(to top, var(--crema), rgba(245,239,230,0)); pointer-events:none; }
+        /* HERO A TODO LO ANCHO CON TEXTO SOBRE LA IMAGEN */
+        .hero { position:relative; }
+        .hero-img { width:100%; height:82vh; min-height:480px; max-height:820px; object-fit:cover; object-position:center; background:var(--crema-2); }
+        .hero-scrim { position:absolute; inset:0; background:linear-gradient(to top, rgba(48,34,26,0.78) 0%, rgba(48,34,26,0.30) 45%, rgba(48,34,26,0.12) 70%, rgba(48,34,26,0.20) 100%); }
+        .hero-fade { content:""; position:absolute; left:0; right:0; bottom:0; height:90px; background:linear-gradient(to top, var(--crema), rgba(245,239,230,0)); pointer-events:none; }
+        .hero-content { position:absolute; left:0; right:0; bottom:0; padding-bottom:60px; }
+        .hero-content .inner { max-width:660px; }
+        .hero-content .eyebrow { color:#E7D8BF; }
+        .hero-content h1 { font-size:3.4rem; color:#FFF9F0; margin:14px 0 16px; text-shadow:0 2px 18px rgba(0,0,0,0.35); }
+        .hero-content p.lead { font-size:1.18rem; color:#F3E9DA; max-width:560px; margin:0 0 28px; text-shadow:0 1px 10px rgba(0,0,0,0.35); }
+        .hero-content .acciones { display:flex; gap:14px; flex-wrap:wrap; }
 
-        .intro { text-align:center; padding:60px 0 80px; }
-        .intro h1 { font-size:3rem; color:var(--cafe-osc); margin:14px auto 16px; max-width:780px; }
-        .intro p.lead { font-size:1.15rem; color:var(--suave); max-width:560px; margin:0 auto 28px; }
-        .intro .acciones { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-
-        .valores { background:var(--crema-2); padding:46px 0; }
+        .valores { background:var(--crema-2); padding:42px 0; }
         .valores .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:26px; text-align:center; }
-        .valor svg { width:30px; height:30px; color:var(--olivo); margin-bottom:10px; }
+        .valor svg { width:30px; height:30px; color:var(--olivo-d); margin-bottom:10px; }
         .valor h4 { font-family:'Mulish',sans-serif; font-size:0.92rem; font-weight:700; letter-spacing:0.5px; color:var(--cafe-osc); margin-bottom:2px; }
         .valor p { font-size:0.82rem; color:var(--suave); }
 
@@ -70,12 +170,13 @@
         .cabeza .linea { width:56px; height:3px; background:var(--olivo); border-radius:2px; margin:16px auto 0; }
 
         .productos { padding:90px 0; }
-        .rejilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:26px; }
-        .card { background:var(--tarjeta); border:1px solid var(--linea); border-radius:16px; overflow:hidden; text-align:left; display:flex; flex-direction:column; box-shadow:0 6px 20px rgba(94,63,40,0.05); transition:transform 0.25s,box-shadow 0.25s; }
-        .card:hover { transform:translateY(-6px); box-shadow:0 20px 44px rgba(94,63,40,0.14); }
-        .card .foto { width:100%; aspect-ratio:1/1; background:var(--crema); overflow:hidden; cursor:pointer; }
+        .rejilla { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+        .card { background:var(--tarjeta); border:1px solid var(--linea); border-radius:16px; overflow:hidden; text-align:left; display:flex; flex-direction:column; box-shadow:var(--sombra-sm); transition:transform 0.25s, box-shadow 0.25s; }
+        .card:hover { transform:translateY(-6px); box-shadow:var(--sombra-lg); }
+        .card .foto { width:100%; aspect-ratio:1/1; background:var(--crema); overflow:hidden; cursor:pointer; border:none; padding:0; display:block; position:relative; }
         .card .foto img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
         .card:hover .foto img { transform:scale(1.06); }
+        .card .tag-kit { position:absolute; top:12px; left:12px; background:var(--olivo-d); color:#fff; font-size:0.62rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; padding:5px 11px; border-radius:20px; }
         .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex-grow:1; }
         .card h3 { font-size:1.3rem; margin-bottom:4px; color:var(--cafe-osc); }
         .card-body p { font-size:0.9rem; color:var(--suave); margin-bottom:16px; flex-grow:1; }
@@ -92,11 +193,11 @@
         /* CONTACTO ORDENADO */
         .contacto { padding:90px 0; }
         .contacto .cabeza { margin-bottom:36px; }
-        .contacto .tarjeta { background:var(--tarjeta); border:1px solid var(--linea); border-radius:16px; padding:14px 38px; max-width:560px; margin:0 auto; box-shadow:0 14px 40px rgba(94,63,40,0.07); }
+        .contacto .tarjeta { background:var(--tarjeta); border:1px solid var(--linea); border-radius:16px; padding:14px 38px; max-width:560px; margin:0 auto; box-shadow:var(--sombra-md); }
         .c-row { display:flex; align-items:center; gap:16px; padding:18px 0; border-bottom:1px solid var(--linea); text-align:left; }
         .c-row:last-child { border-bottom:none; }
         .c-row svg { width:22px; height:22px; color:var(--cafe); flex:none; }
-        .c-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:1.6px; color:var(--olivo); font-weight:700; margin-bottom:2px; }
+        .c-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:1.6px; color:var(--olivo-d); font-weight:700; margin-bottom:2px; }
         .c-val { font-size:1.05rem; color:var(--texto); }
         .c-val a { color:var(--cafe); text-decoration:none; font-weight:600; }
         .c-val a:hover { text-decoration:underline; }
@@ -112,18 +213,27 @@
         footer .links { margin:14px 0; }
         footer .links a { color:#EBDFCF; text-decoration:none; margin:0 12px; font-weight:600; font-size:0.9rem; }
         footer .links a:hover { color:#fff; }
-        footer .copy { font-size:0.78rem; color:#B79E84; margin-top:12px; }
+        footer .copy { font-size:0.78rem; color:#C7AE92; margin-top:12px; }
 
+        /* BOTONES FLOTANTES */
         .wa-float { position:fixed; right:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
         .wa-float.show { opacity:1; visibility:visible; transform:none; }
         .wa-float svg { width:30px; height:30px; color:#fff; }
+        .to-top { position:fixed; right:20px; bottom:86px; width:46px; height:46px; border-radius:50%; background:var(--tarjeta); border:1px solid var(--linea); color:var(--cafe-osc); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(94,63,40,0.15); cursor:pointer; z-index:120; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
+        .to-top.show { opacity:1; visibility:visible; transform:none; }
+        .to-top:hover { background:var(--crema-2); }
+        .to-top svg { width:20px; height:20px; }
 
         .js .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
         .js .reveal.visible { opacity:1; transform:none; }
-        @media (prefers-reduced-motion: reduce) { .js .reveal { opacity:1; transform:none; transition:none; } }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior:auto; }
+            .js .reveal { opacity:1; transform:none; transition:none; }
+        }
 
         /* ASISTENTE VIRTUAL (Gemini) */
-        .bot-btn { position:fixed; left:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--cafe); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; cursor:pointer; border:none; }
+        .bot-btn { position:fixed; left:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--cafe); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; cursor:pointer; border:none; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
+        .bot-btn.show { opacity:1; visibility:visible; transform:none; }
         .bot-btn svg { width:28px; height:28px; color:#fff; }
         .bot-panel { position:fixed; left:20px; bottom:86px; width:340px; max-width:calc(100vw - 40px); height:460px; max-height:calc(100vh - 120px); background:var(--crema); border:1px solid var(--linea); border-radius:16px; box-shadow:0 20px 50px rgba(0,0,0,0.25); display:none; flex-direction:column; overflow:hidden; z-index:121; }
         .bot-panel.open { display:flex; }
@@ -136,7 +246,8 @@
         .msg.bot { background:#fff; border:1px solid var(--linea); align-self:flex-start; border-bottom-left-radius:4px; color:var(--texto); }
         .msg.user { background:var(--cafe); color:#fff; align-self:flex-end; border-bottom-right-radius:4px; }
         .bot-input { display:flex; gap:8px; padding:12px; border-top:1px solid var(--linea); }
-        .bot-input input { flex:1; border:1px solid var(--linea); border-radius:20px; padding:10px 14px; font-family:'Mulish',sans-serif; font-size:0.9rem; outline:none; background:#fff; }
+        .bot-input input { flex:1; border:1px solid var(--linea); border-radius:20px; padding:10px 14px; font-family:'Mulish',sans-serif; font-size:0.9rem; outline:none; background:#fff; color:var(--texto); }
+        .bot-input input:focus { border-color:var(--cafe); }
         .bot-input button { background:var(--cafe); color:#fff; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; flex:none; display:flex; align-items:center; justify-content:center; }
         .bot-input button svg { width:18px; height:18px; }
 
@@ -144,7 +255,8 @@
         .modal-overlay.open { display:flex; align-items:center; justify-content:center; padding:24px; }
         .modal { background:var(--tarjeta); border-radius:16px; max-width:720px; width:100%; position:relative; box-shadow:0 30px 80px rgba(0,0,0,0.3); max-height:90vh; overflow:auto; }
         .modal-close,.cart-close { background:none; border:none; font-size:1.7rem; line-height:1; cursor:pointer; color:var(--suave); }
-        .modal-close { position:absolute; top:14px; right:18px; z-index:2; }
+        .modal-close { position:absolute; top:14px; right:18px; z-index:2; width:38px; height:38px; border-radius:50%; }
+        .modal-close:hover,.cart-close:hover { color:var(--cafe-osc); }
         .modal-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; align-items:center; }
         .modal-foto { background:var(--crema); border-radius:16px 0 0 16px; padding:24px; height:100%; display:flex; align-items:center; }
         .modal-foto img { width:100%; border-radius:10px; }
@@ -156,7 +268,7 @@
         .qty button { background:var(--crema); border:none; width:38px; height:38px; font-size:1.15rem; cursor:pointer; color:var(--cafe-osc); }
         .qty button:hover { background:var(--crema-2); }
         .qty span { width:46px; text-align:center; font-weight:700; }
-        .modal-info .btn { display:block; width:100%; }
+        .modal-info .btn { display:flex; width:100%; }
 
         .cart-overlay.open { display:block; }
         .cart-panel { position:absolute; top:0; right:0; height:100%; width:390px; max-width:90%; background:var(--crema); display:flex; flex-direction:column; box-shadow:-10px 0 40px rgba(0,0,0,0.2); transform:translateX(100%); transition:transform 0.3s; }
@@ -173,72 +285,136 @@
         .cart-item .qty { margin:0; }
         .cart-item .qty button { width:30px; height:30px; font-size:1rem; }
         .cart-item .qty span { width:32px; }
-        .ci-remove { background:none; border:none; font-size:1.4rem; color:var(--suave); cursor:pointer; }
+        .ci-remove { background:none; border:none; font-size:1.4rem; color:var(--suave); cursor:pointer; line-height:1; }
+        .ci-remove:hover { color:var(--cafe); }
         .cart-foot { padding:18px 22px 24px; border-top:1px solid var(--linea); }
         .cart-total { display:flex; justify-content:space-between; font-size:1.15rem; margin-bottom:14px; }
         .cart-total strong { color:var(--cafe-osc); }
         .cart-foot .btn { width:100%; }
 
+        /* TEXTURA DE PAPEL VINTAGE (muy sutil, da sensación artesanal) */
+        .grain { position:fixed; inset:0; z-index:300; pointer-events:none; opacity:0.05; mix-blend-mode:multiply; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+        /* NUESTRO RITUAL / PROCESO */
+        .proceso { padding:90px 0; }
+        .proceso .pasos { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
+        .paso { text-align:center; }
+        .paso .num { font-family:'Cormorant Garamond',Georgia,serif; font-size:3.4rem; font-weight:600; color:var(--olivo-d); line-height:1; }
+        .paso .num::after { content:""; display:block; width:34px; height:2px; background:var(--olivo); margin:12px auto 16px; }
+        .paso h3 { font-size:1.5rem; margin-bottom:8px; }
+        .paso p { color:var(--suave); font-size:0.96rem; max-width:300px; margin:0 auto; }
+
+        /* SELLO VINTAGE */
+        .sello { width:138px; height:138px; color:var(--olivo-d); display:block; margin-bottom:22px; }
+
+        /* PREGUNTAS FRECUENTES */
+        .faq { padding:90px 0; background:var(--crema-2); }
+        .faq .lista { max-width:720px; margin:0 auto; }
+        .faq details { background:var(--tarjeta); border:1px solid var(--linea); border-radius:12px; margin-bottom:14px; box-shadow:var(--sombra-sm); }
+        .faq summary { cursor:pointer; padding:18px 24px; font-family:'Cormorant Garamond',Georgia,serif; font-size:1.35rem; color:var(--cafe-osc); font-weight:600; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:14px; }
+        .faq summary::-webkit-details-marker { display:none; }
+        .faq summary::after { content:"+"; font-family:'Mulish',sans-serif; font-size:1.6rem; line-height:1; color:var(--olivo-d); transition:transform 0.25s; flex:none; }
+        .faq details[open] summary::after { transform:rotate(45deg); }
+        .faq details p { padding:0 24px 20px; margin:0; color:var(--suave); }
+
+        @media (max-width:980px) {
+            .hero-content h1 { font-size:2.8rem; }
+        }
         @media (max-width:880px) {
             .nosotros .grid { grid-template-columns:1fr; gap:36px; }
-            .intro h1 { font-size:2.3rem; }
             .valores .grid { grid-template-columns:repeat(2,1fr); gap:30px 18px; }
             .cabeza h2,.nosotros h2 { font-size:2.2rem; }
-            .banner img { height:58vh; }
+            .hero-img { height:64vh; }
+            .hero-content h1 { font-size:2.4rem; }
+            .productos,.nosotros,.contacto,.proceso,.faq { padding:64px 0; }
+            .proceso .pasos { grid-template-columns:1fr; gap:40px; }
+            .rejilla { grid-template-columns:repeat(2,1fr); }
         }
-        @media (max-width:640px) { .modal-grid { grid-template-columns:1fr; } .modal-foto { border-radius:16px 16px 0 0; } .contacto .tarjeta { padding:14px 24px; } }
-        @media (max-width:560px) { .nav-bar { justify-content:center; } nav { justify-content:center; gap:14px; } }
+        /* MENU HAMBURGUESA EN CELULAR */
+        @media (max-width:760px) {
+            .menu-toggle { display:inline-flex; }
+            header { position:relative; }
+            nav { position:absolute; top:100%; left:0; right:0; display:none; flex-direction:column; align-items:stretch; gap:0; background:rgba(245,239,230,0.98); backdrop-filter:blur(10px); border-bottom:1px solid var(--linea); padding:6px 0; box-shadow:0 14px 26px rgba(94,63,40,0.10); }
+            header.nav-open nav { display:flex; }
+            nav a { padding:13px 28px; border-bottom:none; border-left:3px solid transparent; }
+            nav a:hover, nav a.active { border-bottom-color:transparent; border-left-color:var(--cafe); background:rgba(229,216,196,0.45); }
+        }
+        @media (max-width:640px) {
+            .modal-grid { grid-template-columns:1fr; }
+            .modal-foto { border-radius:16px 16px 0 0; }
+            .contacto .tarjeta { padding:14px 24px; }
+            .hero-content { padding-bottom:42px; }
+            .hero-content p.lead { font-size:1.05rem; }
+        }
+        @media (max-width:560px) {
+            .brand .name { font-size:1.5rem; }
+            .hero-content .acciones .btn { flex:1; }
+            .rejilla { grid-template-columns:1fr; }
+        }
     </style>
 </head>
 <body>
 
+    <div class="grain" aria-hidden="true"></div>
+
+    <a href="#productos" class="skip-link" data-es="Saltar al contenido" data-en="Skip to content">Saltar al contenido</a>
+
+    <div class="topbar">
+        <span data-es="✦ Cuidado artesanal de la piel · Hecho a mano en Miami, Florida" data-en="✦ Artisan skincare · Handmade in Miami, Florida">✦ Cuidado artesanal de la piel · Hecho a mano en Miami, Florida</span>
+    </div>
+
     <header>
         <div class="nav-bar wrap">
-            <a href="#inicio" class="brand"><span class="name">GlowBest Y<span class="amp">&amp;</span>D</span></a>
-            <nav>
+            <a href="#inicio" class="brand" aria-label="GlowBest Y&D - Inicio"><span class="name">GlowBest Y<span class="amp">&amp;</span>D</span></a>
+            <nav id="main-nav" aria-label="Principal">
                 <a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a>
                 <a href="#productos" data-es="Productos" data-en="Products">Productos</a>
                 <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
                 <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
             </nav>
             <div class="actions">
-                <div class="lang-toggle">
-                    <button id="lang-es" class="active" onclick="setLang('es')">ES</button>
-                    <button id="lang-en" onclick="setLang('en')">EN</button>
+                <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+                    <button id="lang-es" aria-pressed="true" onclick="setLang('es')">ES</button>
+                    <button id="lang-en" aria-pressed="false" onclick="setLang('en')">EN</button>
                 </div>
-                <button class="cart-btn" onclick="openCart()" aria-label="Carrito">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <button class="cart-btn" onclick="openCart()" aria-label="Abrir carrito">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                     <span id="cart-count" class="badge">0</span>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+                    <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                    <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
                 </button>
             </div>
         </div>
     </header>
 
-    <section id="inicio" class="banner">
-        <img src="images/hero.jpg.jpeg" alt="Colección GlowBest Y&D de cuidado natural de la piel">
-    </section>
-
-    <section class="intro">
-        <div class="wrap">
-            <span class="eyebrow" data-es="Artesanal · Natural · Esencial" data-en="Artisanal · Natural · Essential">Artesanal · Natural · Esencial</span>
-            <h1 data-es="Tu mejor versión comienza con el cuidado de tu piel" data-en="Your best self begins with caring for your skin">Tu mejor versión comienza con el cuidado de tu piel</h1>
-            <p class="lead" data-es="Jabones, cremas y aceites hechos a mano en pequeñas tandas, con ingredientes naturales para nutrir, hidratar y realzar tu brillo." data-en="Handmade soaps, creams and oils made in small batches with natural ingredients to nourish, hydrate and enhance your glow.">Jabones, cremas y aceites hechos a mano en pequeñas tandas, con ingredientes naturales para nutrir, hidratar y realzar tu brillo.</p>
-            <div class="acciones">
-                <a href="#productos" class="btn btn-cafe" data-es="Ver productos" data-en="Shop products">Ver productos</a>
-                <a href="#nosotros" class="btn btn-linea" data-es="Conócenos" data-en="Learn more">Conócenos</a>
+    <section id="inicio" class="hero">
+        <img class="hero-img" src="images/hero.jpg.jpeg" width="1672" height="941" fetchpriority="high" decoding="async" alt="Colección GlowBest Y&amp;D de cuidado natural de la piel">
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-content wrap">
+            <div class="inner">
+                <span class="eyebrow" data-es="Artesanal · Natural · Esencial" data-en="Artisanal · Natural · Essential">Artesanal · Natural · Esencial</span>
+                <h1 data-es="Tu mejor versión comienza con el cuidado de tu piel" data-en="Your best self begins with caring for your skin">Tu mejor versión comienza con el cuidado de tu piel</h1>
+                <p class="lead" data-es="Jabones, cremas y aceites hechos a mano en pequeñas tandas, con ingredientes naturales para nutrir, hidratar y realzar tu brillo." data-en="Handmade soaps, creams and oils made in small batches with natural ingredients to nourish, hydrate and enhance your glow.">Jabones, cremas y aceites hechos a mano en pequeñas tandas, con ingredientes naturales para nutrir, hidratar y realzar tu brillo.</p>
+                <div class="acciones">
+                    <a href="#productos" class="btn btn-crema" data-es="Ver productos" data-en="Shop products">Ver productos</a>
+                    <a href="#nosotros" class="btn btn-ghost" data-es="Conócenos" data-en="Learn more">Conócenos</a>
+                </div>
             </div>
         </div>
+        <div class="hero-fade" aria-hidden="true"></div>
     </section>
 
-    <section class="valores">
+    <section class="valores" aria-label="Nuestros valores">
         <div class="wrap grid">
-            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
                 <h4 data-es="Ingredientes naturales" data-en="Natural ingredients">Ingredientes naturales</h4><p data-es="Aceites y extractos de plantas" data-en="Plant oils and extracts">Aceites y extractos de plantas</p></div>
-            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                 <h4 data-es="Hecho a mano" data-en="Handmade">Hecho a mano</h4><p data-es="En pequeñas tandas, con amor" data-en="In small batches, with love">En pequeñas tandas, con amor</p></div>
-            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/></svg>
+            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/></svg>
                 <h4 data-es="Limpio y suave" data-en="Clean and gentle">Limpio y suave</h4><p data-es="Cuida hasta la piel sensible" data-en="Cares for sensitive skin too">Cuida hasta la piel sensible</p></div>
-            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"/></svg>
+            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"/></svg>
                 <h4 data-es="Brillo natural" data-en="Natural glow">Brillo natural</h4><p data-es="Para una piel sana y radiante" data-en="For healthy, radiant skin">Para una piel sana y radiante</p></div>
         </div>
     </section>
@@ -255,15 +431,73 @@
         </div>
     </section>
 
+    <section class="proceso" aria-label="Nuestro proceso artesanal">
+        <div class="wrap">
+            <div class="cabeza">
+                <span class="eyebrow" data-es="El proceso" data-en="The process">El proceso</span>
+                <h2 data-es="Nuestro ritual artesanal" data-en="Our artisanal ritual">Nuestro ritual artesanal</h2>
+                <p data-es="Cada producto nace de un proceso lento y cuidadoso, pensado para tu piel." data-en="Every product is born from a slow, careful process — made for your skin.">Cada producto nace de un proceso lento y cuidadoso, pensado para tu piel.</p>
+                <div class="linea"></div>
+            </div>
+            <div class="pasos">
+                <div class="paso">
+                    <div class="num">01</div>
+                    <h3 data-es="Ingredientes naturales" data-en="Natural ingredients">Ingredientes naturales</h3>
+                    <p data-es="Seleccionamos aceites y extractos de plantas, elegidos con cuidado." data-en="We select plant oils and extracts, chosen with care.">Seleccionamos aceites y extractos de plantas, elegidos con cuidado.</p>
+                </div>
+                <div class="paso">
+                    <div class="num">02</div>
+                    <h3 data-es="Hecho a mano" data-en="Handmade">Hecho a mano</h3>
+                    <p data-es="Elaboramos cada tanda a mano, en cantidades pequeñas y con dedicación." data-en="We craft every batch by hand, in small quantities and with dedication.">Elaboramos cada tanda a mano, en cantidades pequeñas y con dedicación.</p>
+                </div>
+                <div class="paso">
+                    <div class="num">03</div>
+                    <h3 data-es="Cuidado para tu piel" data-en="Care for your skin">Cuidado para tu piel</h3>
+                    <p data-es="Fórmulas suaves que nutren, hidratan y realzan tu brillo natural." data-en="Gentle formulas that nourish, hydrate and enhance your natural glow.">Fórmulas suaves que nutren, hidratan y realzan tu brillo natural.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="nosotros" class="nosotros">
         <div class="wrap grid">
             <div>
                 <span class="eyebrow" data-es="Nuestra historia" data-en="Our story">Nuestra historia</span>
-                <h2 data-es="Sobre GlowBest Y&D" data-en="About GlowBest Y&D">Sobre GlowBest Y&D</h2>
-                <p data-es="En GlowBest Y&D elaboramos productos artesanales para el cuidado de la piel, con ingredientes seleccionados y fórmulas pensadas para brindar hidratación, nutrición y bienestar." data-en="At GlowBest Y&D we craft artisanal skincare products with selected ingredients and formulas designed to provide hydration, nourishment and wellbeing.">En GlowBest Y&D elaboramos productos artesanales para el cuidado de la piel, con ingredientes seleccionados y fórmulas pensadas para brindar hidratación, nutrición y bienestar.</p>
+                <h2 data-es="Sobre GlowBest Y&amp;D" data-en="About GlowBest Y&amp;D">Sobre GlowBest Y&amp;D</h2>
+                <p data-es="En GlowBest Y&amp;D elaboramos productos artesanales para el cuidado de la piel, con ingredientes seleccionados y fórmulas pensadas para brindar hidratación, nutrición y bienestar." data-en="At GlowBest Y&amp;D we craft artisanal skincare products with selected ingredients and formulas designed to provide hydration, nourishment and wellbeing.">En GlowBest Y&amp;D elaboramos productos artesanales para el cuidado de la piel, con ingredientes seleccionados y fórmulas pensadas para brindar hidratación, nutrición y bienestar.</p>
                 <p data-es="Creemos en lo natural, en lo hecho a mano y en el cuidado que respeta tu piel y al planeta. Cada producto nace en pequeñas tandas, con dedicación." data-en="We believe in natural, handmade care that respects your skin and the planet. Every product is made in small batches, with dedication.">Creemos en lo natural, en lo hecho a mano y en el cuidado que respeta tu piel y al planeta. Cada producto nace en pequeñas tandas, con dedicación.</p>
             </div>
-            <div><p class="quote" data-es="Cuidado que realza tu brillo natural — hecho a mano, con amor." data-en="Skincare that enhances your natural glow — handmade, with love.">Cuidado que realza tu brillo natural — hecho a mano, con amor.</p></div>
+            <div>
+                <svg class="sello" viewBox="0 0 120 120" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+                    <circle cx="60" cy="60" r="56" stroke-width="1.4"/>
+                    <circle cx="60" cy="60" r="48" stroke-width="0.7" stroke-dasharray="1.5 3"/>
+                    <text x="60" y="50" text-anchor="middle" font-family="Marcellus,serif" font-size="13" fill="currentColor" stroke="none">GlowBest</text>
+                    <text x="60" y="67" text-anchor="middle" font-family="Marcellus,serif" font-size="12" fill="currentColor" stroke="none">Y&amp;D</text>
+                    <line x1="42" y1="75" x2="78" y2="75" stroke-width="0.8"/>
+                    <text x="60" y="89" text-anchor="middle" font-family="Mulish,sans-serif" font-size="6.5" letter-spacing="1.4" fill="currentColor" stroke="none">MIAMI · FLORIDA</text>
+                </svg>
+                <p class="quote" data-es="Cuidado que realza tu brillo natural — hecho a mano, con amor." data-en="Skincare that enhances your natural glow — handmade, with love.">Cuidado que realza tu brillo natural — hecho a mano, con amor.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="wrap">
+            <div class="cabeza">
+                <span class="eyebrow" data-es="Preguntas frecuentes" data-en="FAQ">Preguntas frecuentes</span>
+                <h2 data-es="Resolvemos tus dudas" data-en="Your questions, answered">Resolvemos tus dudas</h2>
+                <div class="linea"></div>
+            </div>
+            <div class="lista">
+                <details>
+                    <summary><span data-es="¿Sus productos son naturales?" data-en="Are your products natural?">¿Sus productos son naturales?</span></summary>
+                    <p data-es="Sí. Elaboramos nuestros jabones, cremas y aceites con ingredientes naturales, como aceites y extractos de plantas, en pequeñas tandas." data-en="Yes. We make our soaps, creams and oils with natural ingredients such as plant oils and extracts, in small batches.">Sí. Elaboramos nuestros jabones, cremas y aceites con ingredientes naturales, como aceites y extractos de plantas, en pequeñas tandas.</p>
+                </details>
+                <details>
+                    <summary><span data-es="¿Son aptos para piel sensible?" data-en="Are they suitable for sensitive skin?">¿Son aptos para piel sensible?</span></summary>
+                    <p data-es="Sí. Nuestras fórmulas son suaves y están pensadas para cuidar incluso la piel más sensible." data-en="Yes. Our formulas are gentle and designed to care for even the most sensitive skin.">Sí. Nuestras fórmulas son suaves y están pensadas para cuidar incluso la piel más sensible.</p>
+                </details>
+            </div>
         </div>
     </section>
 
@@ -277,23 +511,23 @@
             </div>
             <div class="tarjeta">
                 <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
                     <div><div class="c-label">WhatsApp</div><div class="c-val"><a href="https://wa.me/18633380581">(863) 338-0581</a></div></div>
                 </div>
                 <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <div><div class="c-label" data-es="Llamar" data-en="Call">Llamar</div><div class="c-val"><a href="tel:+18633380581">+1 (863) 338-0581</a></div></div>
                 </div>
                 <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
                     <div><div class="c-label">Email</div><div class="c-val"><a href="mailto:glowbestyd8996@gmail.com">glowbestyd8996@gmail.com</a></div></div>
                 </div>
                 <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
-                    <div><div class="c-label">Instagram</div><div class="c-val"><a href="https://www.instagram.com/yarenitagonzalez">@yarenitagonzalez</a></div></div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+                    <div><div class="c-label">Instagram</div><div class="c-val"><a href="https://www.instagram.com/yarenitagonzalez" rel="noopener">@yarenitagonzalez</a></div></div>
                 </div>
                 <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     <div><div class="c-label" data-es="Ubicación" data-en="Location">Ubicación</div><div class="c-val">Miami, Florida</div></div>
                 </div>
             </div>
@@ -309,57 +543,63 @@
             <div class="name">GlowBest Y<span class="amp">&amp;</span>D</div>
             <div class="tag" data-es="Cuidado artesanal para tu piel" data-en="Artisan skincare for you">Cuidado artesanal para tu piel</div>
             <div class="social">
-                <a href="https://www.instagram.com/yarenitagonzalez" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-                <a href="https://wa.me/18633380581" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg></a>
-                <a href="mailto:glowbestyd8996@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+                <a href="https://www.instagram.com/yarenitagonzalez" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+                <a href="https://wa.me/18633380581" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg></a>
+                <a href="mailto:glowbestyd8996@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
             </div>
             <div class="links">
                 <a href="#productos" data-es="Productos" data-en="Products">Productos</a>
                 <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+                <a href="#faq" data-es="Preguntas" data-en="FAQ">Preguntas</a>
                 <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
             </div>
-            <div class="copy">© 2026 GlowBest Y&D · Miami, Florida</div>
+            <div class="copy">© <span id="year">2026</span> GlowBest Y&amp;D · Miami, Florida</div>
         </div>
     </footer>
 
-    <a class="wa-float" href="https://wa.me/18633380581" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
+    <button class="to-top" id="to-top" onclick="scrollTop()" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+
+    <a class="wa-float" href="https://wa.me/18633380581" aria-label="Escribir por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
     </a>
 
-    <button class="bot-btn" id="bot-btn" onclick="toggleBot()" aria-label="Asistente virtual">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>
+    <button class="bot-btn" id="bot-btn" onclick="toggleBot()" aria-label="Abrir asistente virtual" aria-expanded="false" aria-controls="bot-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>
     </button>
-    <div class="bot-panel" id="bot-panel">
+    <div class="bot-panel" id="bot-panel" role="dialog" aria-label="Asistente virtual GlowBest">
         <div class="bot-head">
             <div><div class="bt">Asistente GlowBest</div><div class="bs" data-es="Pregúntame sobre los productos" data-en="Ask me about the products">Pregúntame sobre los productos</div></div>
-            <button class="bot-close" onclick="toggleBot()" aria-label="Cerrar">×</button>
+            <button class="bot-close" onclick="toggleBot()" aria-label="Cerrar asistente">×</button>
         </div>
-        <div class="bot-msgs" id="bot-msgs"></div>
+        <div class="bot-msgs" id="bot-msgs" aria-live="polite"></div>
         <div class="bot-input">
-            <input id="bot-text" type="text" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')botSend()">
-            <button onclick="botSend()" aria-label="Enviar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+            <label for="bot-text" class="skip-link" data-es="Escribe tu pregunta" data-en="Type your question">Escribe tu pregunta</label>
+            <input id="bot-text" type="text" placeholder="Escribe tu pregunta..." autocomplete="off" onkeydown="if(event.key==='Enter')botSend()">
+            <button onclick="botSend()" aria-label="Enviar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
         </div>
     </div>
 
-    <div class="modal-overlay" id="modal">
+    <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-name">
         <div class="modal">
-            <button class="modal-close" onclick="closeModal()">×</button>
+            <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">×</button>
             <div class="modal-grid">
                 <div class="modal-foto"><img id="m-img" src="" alt=""></div>
                 <div class="modal-info">
                     <h3 id="m-name"></h3>
                     <div class="modal-price" id="m-price"></div>
                     <p id="m-desc"></p>
-                    <div class="qty"><button onclick="modalQtyChange(-1)">−</button><span id="m-qty">1</span><button onclick="modalQtyChange(1)">+</button></div>
+                    <div class="qty" role="group" aria-label="Cantidad"><button onclick="modalQtyChange(-1)" aria-label="Quitar uno">−</button><span id="m-qty">1</span><button onclick="modalQtyChange(1)" aria-label="Agregar uno">+</button></div>
                     <button class="btn btn-cafe" id="m-add" onclick="addFromModal()"></button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="cart-overlay" id="cart">
+    <div class="cart-overlay" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title">
         <div class="cart-panel">
-            <div class="cart-head"><h3 id="cart-title"></h3><button class="cart-close" onclick="closeCart()">×</button></div>
+            <div class="cart-head"><h3 id="cart-title"></h3><button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">×</button></div>
             <div class="cart-body" id="cart-body"></div>
             <div class="cart-foot" id="cart-foot" style="display:none;">
                 <div class="cart-total"><span id="cart-total-label"></span> <strong id="cart-total-val"></strong></div>
@@ -398,37 +638,49 @@
             { id:'facial', img:'images/facial.jpg.jpeg', precio:0,
               nombre:{es:'Facial Bar', en:'Facial Bar'}, desc:{es:'Limpieza suave para el rostro.', en:'Gentle facial cleansing bar.'},
               detalle:{es:'Barra facial suave que limpia, equilibra y refresca el rostro, dejándolo fresco y cuidado.', en:'Gentle facial bar that cleanses, balances and refreshes your face, leaving it fresh and cared for.'} },
-            { id:'kit', img:'images/kit.jpg.jpeg', precio:0,
+            { id:'kit', img:'images/kit.jpg.jpeg', precio:0, destacado:true,
               nombre:{es:'GlowBest Complete Kit', en:'GlowBest Complete Kit'}, desc:{es:'La colección completa para el cuidado de la piel.', en:'The complete skincare collection.'},
               detalle:{es:'Nuestra colección completa: la rutina ideal para limpiar, exfoliar, hidratar y nutrir tu piel de principio a fin.', en:'Our full collection: the ideal routine to cleanse, exfoliate, hydrate and nourish your skin from start to finish.'} }
         ];
 
         var T = {
-            es:{ viewProduct:'Ver producto', addToCart:'Agregar al carrito', onRequest:'Precio a consultar', cartTitle:'Tu carrito', empty:'Tu carrito está vacío', total:'Total', checkout:'Finalizar pedido por WhatsApp', orderHi:'Hola GlowBest Y&D, quiero hacer este pedido:' },
-            en:{ viewProduct:'View product', addToCart:'Add to cart', onRequest:'Price on request', cartTitle:'Your cart', empty:'Your cart is empty', total:'Total', checkout:'Checkout via WhatsApp', orderHi:'Hi GlowBest Y&D, I would like to order:' }
+            es:{ viewProduct:'Ver producto', addToCart:'Agregar al carrito', onRequest:'Precio a consultar', cartTitle:'Tu carrito', empty:'Tu carrito está vacío', total:'Total', checkout:'Finalizar pedido por WhatsApp', orderHi:'Hola GlowBest Y&D, quiero hacer este pedido:', featured:'Más vendido', openMenu:'Abrir menú', closeMenu:'Cerrar menú' },
+            en:{ viewProduct:'View product', addToCart:'Add to cart', onRequest:'Price on request', cartTitle:'Your cart', empty:'Your cart is empty', total:'Total', checkout:'Checkout via WhatsApp', orderHi:'Hi GlowBest Y&D, I would like to order:', featured:'Bestseller', openMenu:'Open menu', closeMenu:'Close menu' }
         };
 
-        var lang='es', cart=[], modalId=null, modalQty=1;
+        /* Idioma: recuerda la eleccion y detecta el del navegador la primera vez */
+        var savedLang = null, lang = 'es';
+        try { savedLang = localStorage.getItem('gb_lang'); } catch(e) {}
+        lang = savedLang || ((navigator.language || 'es').slice(0,2) === 'en' ? 'en' : 'es');
+
+        var cart = [], modalId = null, modalQty = 1, lastFocus = null;
+        try { cart = JSON.parse(localStorage.getItem('gb_cart')) || []; } catch(e) { cart = []; }
+
+        function saveCart(){ try { localStorage.setItem('gb_cart', JSON.stringify(cart)); } catch(e) {} }
+        function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
         function money(n){ return '$'+Number(n).toFixed(2); }
         function priceText(n){ return n>0 ? money(n) : T[lang].onRequest; }
         function find(id){ return productos.find(function(x){ return x.id===id; }); }
 
         function renderProducts(){
             document.getElementById('rejilla').innerHTML = productos.map(function(p){
-                return '<div class="card">'+
-                  '<div class="foto" onclick="openProduct(\''+p.id+'\')"><img src="'+p.img+'" alt="'+p.nombre[lang]+'" loading="lazy"></div>'+
+                var nombre = escapeHtml(p.nombre[lang]);
+                var badge = p.destacado ? '<span class="tag-kit">'+T[lang].featured+'</span>' : '';
+                return '<article class="card">'+
+                  '<button class="foto" onclick="openProduct(\''+p.id+'\')" aria-label="'+T[lang].viewProduct+': '+nombre+'">'+badge+'<img src="'+p.img+'" alt="'+nombre+'" loading="lazy" decoding="async"></button>'+
                   '<div class="card-body">'+
-                    '<h3>'+p.nombre[lang]+'</h3><p>'+p.desc[lang]+'</p>'+
+                    '<h3>'+nombre+'</h3><p>'+escapeHtml(p.desc[lang])+'</p>'+
                     '<div class="precio-row"><span class="precio">'+priceText(p.precio)+'</span>'+
                     '<button class="btn btn-cafe" onclick="openProduct(\''+p.id+'\')">'+T[lang].viewProduct+'</button></div>'+
                   '</div>'+
-                '</div>';
+                '</article>';
             }).join('');
             applyReveal();
         }
 
         function openProduct(id){
             var p=find(id); modalId=id; modalQty=1;
+            lastFocus = document.activeElement;
             document.getElementById('m-img').src=p.img;
             document.getElementById('m-img').alt=p.nombre[lang];
             document.getElementById('m-name').textContent=p.nombre[lang];
@@ -436,12 +688,14 @@
             document.getElementById('m-desc').textContent=p.detalle[lang];
             document.getElementById('m-qty').textContent=modalQty;
             document.getElementById('m-add').textContent=T[lang].addToCart;
-            document.getElementById('modal').classList.add('open'); document.body.style.overflow='hidden';
+            var m=document.getElementById('modal');
+            m.classList.add('open'); document.body.style.overflow='hidden';
+            focusFirst(m);
         }
-        function closeModal(){ document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; }
+        function closeModal(){ document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; restoreFocus(); }
         function modalQtyChange(d){ modalQty=Math.max(1,modalQty+d); document.getElementById('m-qty').textContent=modalQty; }
         function addFromModal(){ addToCart(modalId,modalQty); closeModal(); openCart(); }
-        function addToCart(id,qty){ var i=cart.find(function(c){return c.id===id;}); if(i){i.qty+=qty;}else{cart.push({id:id,qty:qty});} updateBadge(); }
+        function addToCart(id,qty){ var i=cart.find(function(c){return c.id===id;}); if(i){i.qty+=qty;}else{cart.push({id:id,qty:qty});} saveCart(); updateBadge(); }
         function cartCount(){ return cart.reduce(function(s,c){return s+c.qty;},0); }
         function cartTotal(){ return cart.reduce(function(s,c){return s+(find(c.id).precio||0)*c.qty;},0); }
         function updateBadge(){ var n=cartCount(), b=document.getElementById('cart-count'); b.textContent=n; b.style.display=n>0?'flex':'none'; }
@@ -451,37 +705,57 @@
             if(cart.length===0){ body.innerHTML='<p class="cart-empty">'+T[lang].empty+'</p>'; document.getElementById('cart-foot').style.display='none'; return; }
             document.getElementById('cart-foot').style.display='block';
             body.innerHTML=cart.map(function(c){ var p=find(c.id);
-                return '<div class="cart-item"><img src="'+p.img+'" alt="">'+
-                  '<div class="ci-info"><div class="ci-name">'+p.nombre[lang]+'</div>'+
+                return '<div class="cart-item"><img src="'+p.img+'" alt="" loading="lazy">'+
+                  '<div class="ci-info"><div class="ci-name">'+escapeHtml(p.nombre[lang])+'</div>'+
                   '<div class="ci-price">'+priceText(p.precio)+'</div>'+
-                  '<div class="qty"><button onclick="changeQty(\''+c.id+'\',-1)">−</button><span>'+c.qty+'</span><button onclick="changeQty(\''+c.id+'\',1)">+</button></div></div>'+
-                  '<button class="ci-remove" onclick="removeItem(\''+c.id+'\')">×</button></div>';
+                  '<div class="qty"><button onclick="changeQty(\''+c.id+'\',-1)" aria-label="Quitar uno">−</button><span>'+c.qty+'</span><button onclick="changeQty(\''+c.id+'\',1)" aria-label="Agregar uno">+</button></div></div>'+
+                  '<button class="ci-remove" onclick="removeItem(\''+c.id+'\')" aria-label="Eliminar">×</button></div>';
             }).join('');
             document.getElementById('cart-total-label').textContent=T[lang].total;
             document.getElementById('cart-total-val').textContent=cartTotal()>0?money(cartTotal()):T[lang].onRequest;
             document.getElementById('cart-checkout').textContent=T[lang].checkout;
         }
-        function changeQty(id,d){ var c=cart.find(function(x){return x.id===id;}); if(!c)return; c.qty+=d; if(c.qty<=0){cart=cart.filter(function(x){return x.id!==id;});} updateBadge(); renderCart(); }
-        function removeItem(id){ cart=cart.filter(function(x){return x.id!==id;}); updateBadge(); renderCart(); }
-        function openCart(){ renderCart(); document.getElementById('cart').classList.add('open'); document.body.style.overflow='hidden'; }
-        function closeCart(){ document.getElementById('cart').classList.remove('open'); document.body.style.overflow=''; }
+        function changeQty(id,d){ var c=cart.find(function(x){return x.id===id;}); if(!c)return; c.qty+=d; if(c.qty<=0){cart=cart.filter(function(x){return x.id!==id;});} saveCart(); updateBadge(); renderCart(); }
+        function removeItem(id){ cart=cart.filter(function(x){return x.id!==id;}); saveCart(); updateBadge(); renderCart(); }
+        function openCart(){ renderCart(); lastFocus=document.activeElement; var c=document.getElementById('cart'); c.classList.add('open'); document.body.style.overflow='hidden'; focusFirst(c); }
+        function closeCart(){ document.getElementById('cart').classList.remove('open'); document.body.style.overflow=''; restoreFocus(); }
         function checkout(){
             if(cart.length===0) return;
             var msg=T[lang].orderHi+'\n';
             cart.forEach(function(c){ var p=find(c.id); var pr=p.precio>0?' ('+money(p.precio)+')':''; msg+='• '+c.qty+'x '+p.nombre[lang]+pr+'\n'; });
             if(cartTotal()>0){ msg+=T[lang].total+': '+money(cartTotal()); }
-            window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+            window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank','noopener');
         }
         function setLang(l){
             lang=l; document.documentElement.lang=l;
+            try { localStorage.setItem('gb_lang', l); } catch(e) {}
             document.querySelectorAll('[data-es]').forEach(function(el){ el.textContent=el.getAttribute('data-'+l); });
-            document.getElementById('lang-es').classList.toggle('active',l==='es');
-            document.getElementById('lang-en').classList.toggle('active',l==='en');
+            document.getElementById('lang-es').setAttribute('aria-pressed', l==='es');
+            document.getElementById('lang-en').setAttribute('aria-pressed', l==='en');
+            document.getElementById('bot-text').placeholder = (l==='es'?'Escribe tu pregunta...':'Type your question...');
             renderProducts(); renderCart();
             if(document.getElementById('modal').classList.contains('open') && modalId){ openProduct(modalId); }
         }
 
-        /* asistente virtual */
+        /* ===== Foco accesible para ventanas (modal / carrito) ===== */
+        function focusable(container){
+            return Array.prototype.filter.call(
+                container.querySelectorAll('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])'),
+                function(el){ return el.offsetParent !== null; }
+            );
+        }
+        function focusFirst(container){ var f=focusable(container); if(f.length) f[0].focus(); }
+        function restoreFocus(){ if(lastFocus && lastFocus.focus){ lastFocus.focus(); } lastFocus=null; }
+        function trapFocus(e){
+            var open = document.querySelector('.modal-overlay.open, .cart-overlay.open');
+            if(!open || e.key !== 'Tab') return;
+            var f=focusable(open); if(!f.length) return;
+            var first=f[0], last=f[f.length-1];
+            if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+            else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+        }
+
+        /* ===== Asistente virtual ===== */
         var botHistory = [];
         function botContext(){
             var info = productos.map(function(p){
@@ -491,8 +765,9 @@
             return 'Eres el asistente virtual de GlowBest Y&D, una marca artesanal de jabones, cremas y aceites para el cuidado de la piel en Miami, Florida. Responde de forma amable, breve y calida. Habla solo de los productos, ingredientes, cuidado de la piel y la marca. Si un precio aparece como "a consultar", invita a escribir por WhatsApp al (863) 338-0581. Responde en el mismo idioma en que te escriban. No inventes productos ni precios. Productos:\n'+info+'\nContacto: WhatsApp (863) 338-0581, Instagram @yarenitagonzalez, email glowbestyd8996@gmail.com.';
         }
         function toggleBot(){
-            var p=document.getElementById('bot-panel'); p.classList.toggle('open');
-            if(p.classList.contains('open')){
+            var p=document.getElementById('bot-panel'); var open=p.classList.toggle('open');
+            document.getElementById('bot-btn').setAttribute('aria-expanded', open);
+            if(open){
                 document.getElementById('bot-text').focus();
                 if(botHistory.length===0){ addBotMsg(lang==='es'?'¡Hola! Soy el asistente de GlowBest. ¿En qué puedo ayudarte con nuestros productos?':'Hi! I am the GlowBest assistant. How can I help you with our products?','bot'); }
             }
@@ -515,29 +790,48 @@
             }).catch(function(){ typing.textContent=(lang==='es'?'Hubo un problema de conexión. Intenta de nuevo.':'Connection problem. Please try again.'); });
         }
 
-        /* animaciones suaves al hacer scroll */
+        /* ===== Animaciones suaves al hacer scroll ===== */
         document.documentElement.classList.add('js');
         var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
             entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
         }, { threshold:0.12 }) : null;
         function applyReveal(){
             if(!io) return;
-            document.querySelectorAll('.valor,.cabeza,.card,.quote,.intro h1,.intro p.lead').forEach(function(el){
+            document.querySelectorAll('.valor,.cabeza,.card,.quote,.paso').forEach(function(el){
                 if(!el.classList.contains('reveal')){ el.classList.add('reveal'); io.observe(el); }
             });
         }
 
         document.getElementById('modal').addEventListener('click',function(e){ if(e.target.id==='modal') closeModal(); });
         document.getElementById('cart').addEventListener('click',function(e){ if(e.target.id==='cart') closeCart(); });
-        document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeModal(); closeCart(); } });
-        /* mostrar/ocultar boton de WhatsApp al hacer scroll + sombra de header + menu activo */
+        document.addEventListener('keydown',function(e){
+            if(e.key==='Escape'){ closeModal(); closeCart(); if(document.querySelector('header').classList.contains('nav-open')) toggleMenu(); }
+            trapFocus(e);
+        });
+
+        /* ===== Menu movil, botones flotantes, sombra de header, link activo ===== */
         var waFloat = document.querySelector('.wa-float');
+        var botBtn = document.getElementById('bot-btn');
+        var toTopBtn = document.getElementById('to-top');
         var headerEl = document.querySelector('header');
+        var menuToggleBtn = document.getElementById('menu-toggle');
         var navLinks = [].slice.call(document.querySelectorAll('nav a[href^="#"]'));
         var navSections = navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+
+        function toggleMenu(){
+            var open = headerEl.classList.toggle('nav-open');
+            menuToggleBtn.setAttribute('aria-expanded', open);
+            menuToggleBtn.setAttribute('aria-label', open ? T[lang].closeMenu : T[lang].openMenu);
+        }
+        function scrollTop(){ window.scrollTo({ top:0, behavior:'smooth' }); }
+        navLinks.forEach(function(a){ a.addEventListener('click', function(){ if(headerEl.classList.contains('nav-open')) toggleMenu(); }); });
+
         function onScroll(){
             var y = window.scrollY || window.pageYOffset || 0;
-            if(waFloat){ waFloat.classList.toggle('show', y > 320); }
+            var show = y > 320;
+            if(waFloat){ waFloat.classList.toggle('show', show); }
+            if(botBtn){ botBtn.classList.toggle('show', show); }
+            if(toTopBtn){ toTopBtn.classList.toggle('show', show); }
             if(headerEl){ headerEl.classList.toggle('scrolled', y > 20); }
             var idx = -1;
             for(var i=0;i<navSections.length;i++){ var s=navSections[i]; if(s && s.getBoundingClientRect().top <= 130) idx=i; }
@@ -546,7 +840,8 @@
         window.addEventListener('scroll', onScroll, { passive:true });
         onScroll();
 
-        setLang('es'); updateBadge(); applyReveal();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        setLang(lang); updateBadge(); applyReveal();
     </script>
 </body>
 </html>
