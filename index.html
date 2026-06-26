@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowBest Y&amp;D · Jabones y cuidado artesanal de la piel | Miami, FL</title>
-    <meta name="description" content="GlowBest Y&amp;D — jabones, cremas y aceites artesanales para el cuidado natural de la piel. Hechos a mano en pequeñas tandas en Miami, Florida.">
+    <meta name="description" content="GlowBest Y&amp;D — jabones, cremas y aceites artesanales para el cuidado natural de la piel, hechos a mano con ingredientes cuidadosamente seleccionados en Miami, Florida.">
     <meta name="author" content="GlowBest Y&amp;D">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#5E3F28">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="GlowBest Y&amp;D">
     <meta property="og:title" content="GlowBest Y&amp;D · Cuidado artesanal de la piel">
-    <meta property="og:description" content="Jabones, cremas y aceites hechos a mano en pequeñas tandas con ingredientes naturales. Miami, Florida.">
+    <meta property="og:description" content="Jabones, cremas y aceites hechos a mano con ingredientes naturales cuidadosamente seleccionados. Miami, Florida.">
     <meta property="og:locale" content="es_ES">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:url" content="https://glowbestyd.com/">
@@ -51,7 +51,7 @@
       "@context": "https://schema.org",
       "@type": "HealthAndBeautyBusiness",
       "name": "GlowBest Y&D",
-      "description": "Jabones, cremas y aceites artesanales para el cuidado natural de la piel, hechos a mano en pequeñas tandas en Miami, Florida.",
+      "description": "Jabones, cremas y aceites artesanales para el cuidado natural de la piel, hechos a mano con ingredientes cuidadosamente seleccionados en Miami, Florida.",
       "image": "https://glowbestyd.com/images/hero.jpg.jpeg",
       "url": "https://glowbestyd.com/",
       "telephone": "+1-863-338-0581",
@@ -74,7 +74,7 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "¿Sus productos son naturales?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Elaboramos nuestros jabones, cremas y aceites con ingredientes naturales, como aceites y extractos de plantas, en pequeñas tandas." } },
+        { "@type": "Question", "name": "¿Sus productos son naturales?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Elaboramos nuestros jabones, cremas y aceites con ingredientes naturales cuidadosamente seleccionados, como aceites y extractos de plantas." } },
         { "@type": "Question", "name": "¿Son aptos para piel sensible?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras fórmulas son suaves y están pensadas para cuidar incluso la piel más sensible." } }
       ]
     }
@@ -119,6 +119,7 @@
         .btn-crema:hover { background:#fff; box-shadow:var(--sombra-md); }
         .btn-ghost { background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.75); backdrop-filter:blur(2px); }
         .btn-ghost:hover { background:#fff; color:var(--cafe-osc); }
+        .btn-lg { padding:15px 38px; font-size:0.86rem; letter-spacing:1.2px; }
 
         /* BARRA DE ANUNCIO */
         .topbar { background:var(--cafe-osc); color:#EBDFCF; text-align:center; font-size:0.72rem; letter-spacing:1.6px; text-transform:uppercase; padding:7px 14px; font-weight:600; }
@@ -128,8 +129,8 @@
         header { position:sticky; top:0; z-index:50; background:rgba(245,239,230,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(229,216,196,0.6); transition:box-shadow 0.3s, background 0.3s; }
         header.scrolled { background:rgba(245,239,230,0.97); box-shadow:0 4px 22px rgba(94,63,40,0.09); }
         .nav-bar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0; min-height:var(--header-h); }
-        .brand { text-decoration:none; }
-        .brand .name { font-family:'Marcellus',serif; font-size:1.75rem; font-weight:400; letter-spacing:1px; color:var(--cafe-osc); }
+        .brand { text-decoration:none; flex:none; }
+        .brand .name { font-family:'Marcellus',serif; font-size:1.75rem; font-weight:400; letter-spacing:1px; color:var(--cafe-osc); white-space:nowrap; }
         nav { display:flex; align-items:center; gap:24px; }
         nav a { text-decoration:none; color:var(--texto); font-weight:600; font-size:0.76rem; letter-spacing:1.4px; text-transform:uppercase; padding-bottom:3px; border-bottom:2px solid transparent; transition:0.2s; }
         nav a:hover, nav a.active { color:var(--cafe); border-bottom-color:var(--cafe); }
@@ -145,6 +146,18 @@
         .cart-btn { position:relative; background:transparent; border:none; cursor:pointer; color:var(--cafe-osc); padding:6px; }
         .cart-btn svg { width:24px; height:24px; }
         .badge { position:absolute; top:-2px; right:-4px; background:var(--olivo-d); color:#fff; font-size:0.64rem; font-weight:700; min-width:17px; height:17px; border-radius:50%; display:none; align-items:center; justify-content:center; padding:0 4px; }
+        /* iconos de accion del header (buscar, cuenta) */
+        .icon-btn { background:transparent; border:none; cursor:pointer; color:var(--cafe-osc); padding:7px; display:flex; align-items:center; justify-content:center; border-radius:9px; transition:background 0.2s, color 0.2s, transform 0.15s; text-decoration:none; }
+        .icon-btn:hover { background:rgba(139,94,60,0.10); color:var(--cafe); }
+        .icon-btn:active { transform:scale(0.92); }
+        .icon-btn svg { width:22px; height:22px; }
+        /* buscador desplegable */
+        .search-panel { position:absolute; left:0; right:0; top:100%; background:rgba(245,239,230,0.98); backdrop-filter:blur(10px); border-bottom:1px solid var(--linea); box-shadow:0 14px 26px rgba(94,63,40,0.10); max-height:0; overflow:hidden; opacity:0; transition:max-height 0.3s ease, opacity 0.25s ease; }
+        .search-panel.open { max-height:120px; opacity:1; }
+        .search-inner { display:flex; align-items:center; gap:10px; padding:14px 28px; }
+        .search-inner .search-ic { width:20px; height:20px; color:var(--olivo-d); flex:none; }
+        .search-inner input { flex:1; border:1px solid var(--linea); background:var(--tarjeta); border-radius:24px; padding:11px 18px; font-family:'Mulish',sans-serif; font-size:0.95rem; color:var(--texto); outline:none; transition:border-color 0.2s; }
+        .search-inner input:focus { border-color:var(--cafe); box-shadow:0 0 0 3px rgba(139,94,60,0.10); }
 
         /* HERO A TODO LO ANCHO CON TEXTO SOBRE LA IMAGEN */
         .hero { position:relative; }
@@ -154,8 +167,8 @@
         .hero-content { position:absolute; left:0; right:0; bottom:0; padding-bottom:60px; }
         .hero-content .inner { max-width:660px; }
         .hero-content .eyebrow { color:#E7D8BF; }
-        .hero-content h1 { font-size:3.4rem; color:#FFF9F0; margin:14px 0 16px; text-shadow:0 2px 18px rgba(0,0,0,0.35); }
-        .hero-content p.lead { font-size:1.18rem; color:#F3E9DA; max-width:560px; margin:0 0 28px; text-shadow:0 1px 10px rgba(0,0,0,0.35); }
+        .hero-content h1 { font-size:3.6rem; color:#FFF9F0; margin:16px 0 18px; letter-spacing:0.3px; text-shadow:0 2px 18px rgba(0,0,0,0.35); }
+        .hero-content p.lead { font-size:1.2rem; line-height:1.6; color:#F3E9DA; max-width:540px; margin:0 0 30px; text-shadow:0 1px 10px rgba(0,0,0,0.35); }
         .hero-content .acciones { display:flex; gap:14px; flex-wrap:wrap; }
 
         .valores { background:var(--crema-2); padding:42px 0; }
@@ -179,10 +192,13 @@
         .card .tag-kit { position:absolute; top:12px; left:12px; background:var(--olivo-d); color:#fff; font-size:0.62rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; padding:5px 11px; border-radius:20px; }
         .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex-grow:1; }
         .card h3 { font-size:1.3rem; margin-bottom:4px; color:var(--cafe-osc); }
-        .card-body p { font-size:0.9rem; color:var(--suave); margin-bottom:16px; flex-grow:1; }
-        .precio-row { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+        .card-body p { font-size:0.9rem; color:var(--suave); margin-bottom:14px; }
+        .precio-row { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:4px; }
         .precio-row .precio { color:var(--cafe-osc); font-weight:700; font-size:1.12rem; font-family:'Mulish',sans-serif; }
         .precio-row .btn { padding:10px 18px; font-size:0.74rem; white-space:nowrap; }
+        .card .chips { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 16px; }
+        .card .chip { font-size:0.62rem; letter-spacing:0.6px; text-transform:uppercase; font-weight:700; color:var(--olivo-d); background:rgba(138,154,119,0.14); border-radius:20px; padding:4px 10px; }
+        .sin-resultados { grid-column:1/-1; text-align:center; color:var(--suave); font-size:1.05rem; padding:36px 0; }
 
         .nosotros { background:var(--crema-2); padding:90px 0; }
         .nosotros .grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
@@ -202,6 +218,15 @@
         .c-val a { color:var(--cafe); text-decoration:none; font-weight:600; }
         .c-val a:hover { text-decoration:underline; }
         .contacto .botones { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:30px; }
+        /* contacto: tarjetas clicables */
+        .grid-contacto { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:880px; margin:0 auto; }
+        .c-tile { background:var(--tarjeta); border:1px solid var(--linea); border-radius:14px; padding:26px 18px; text-align:center; text-decoration:none; color:inherit; box-shadow:var(--sombra-sm); display:flex; flex-direction:column; align-items:center; gap:4px; transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+        .c-tile:hover { transform:translateY(-4px); box-shadow:var(--sombra-md); border-color:var(--cafe); }
+        .c-tile .ic { width:52px; height:52px; border-radius:50%; background:rgba(139,94,60,0.10); display:flex; align-items:center; justify-content:center; color:var(--cafe); margin-bottom:6px; transition:background 0.2s, color 0.2s; }
+        .c-tile:hover .ic { background:var(--cafe); color:#fff; }
+        .c-tile .ic svg { width:24px; height:24px; }
+        .c-tile .c-label { margin-bottom:0; }
+        .c-tile .c-val { font-size:0.92rem; font-weight:600; color:var(--texto); word-break:break-word; }
 
         footer { background:var(--cafe-osc); color:#EBDFCF; padding:46px 0 28px; text-align:center; }
         footer .name { font-family:'Marcellus',serif; font-size:1.85rem; font-weight:400; letter-spacing:1px; color:#fff; }
@@ -215,11 +240,27 @@
         footer .links a:hover { color:#fff; }
         footer .copy { font-size:0.78rem; color:#C7AE92; margin-top:12px; }
 
-        /* BOTONES FLOTANTES */
-        .wa-float { position:fixed; right:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
-        .wa-float.show { opacity:1; visibility:visible; transform:none; }
-        .wa-float svg { width:30px; height:30px; color:#fff; }
-        .to-top { position:fixed; right:20px; bottom:86px; width:46px; height:46px; border-radius:50%; background:var(--tarjeta); border:1px solid var(--linea); color:var(--cafe-osc); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(94,63,40,0.15); cursor:pointer; z-index:120; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
+        /* BOTON FLOTANTE UNICO (despliega WhatsApp + Chat) */
+        .fab { position:fixed; right:20px; bottom:20px; z-index:122; }
+        .fab-main { width:58px; height:58px; border-radius:50%; background:var(--cafe); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 22px rgba(94,63,40,0.30); position:relative; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s; }
+        .fab.show .fab-main { opacity:1; visibility:visible; transform:none; }
+        .fab.open .fab-main { background:var(--cafe-osc); }
+        .fab-main:hover { background:var(--cafe-osc); }
+        .fab-main svg { width:27px; height:27px; position:absolute; transition:opacity 0.2s, transform 0.25s; }
+        .fab-main .fab-ic-close { opacity:0; transform:rotate(-45deg); }
+        .fab.open .fab-main .fab-ic-open { opacity:0; transform:rotate(45deg); }
+        .fab.open .fab-main .fab-ic-close { opacity:1; transform:none; }
+        .fab-actions { position:absolute; right:5px; bottom:74px; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+        .fab-action { display:flex; align-items:center; gap:10px; text-decoration:none; background:none; border:none; cursor:pointer; padding:0; opacity:0; transform:translateY(10px) scale(0.9); pointer-events:none; transition:opacity 0.25s, transform 0.25s; }
+        .fab.open .fab-action { opacity:1; transform:none; pointer-events:auto; }
+        .fab.open .fab-action.wa { transition-delay:0.05s; }
+        .fab-action .lbl { background:var(--tarjeta); color:var(--cafe-osc); font-size:0.78rem; font-weight:700; padding:7px 13px; border-radius:8px; box-shadow:var(--sombra-sm); white-space:nowrap; }
+        .fab-action .ball { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(0,0,0,0.20); flex:none; }
+        .fab-action.wa .ball { background:#25D366; color:#fff; }
+        .fab-action.chat .ball { background:var(--cafe); color:#fff; }
+        .fab-action .ball svg { width:25px; height:25px; }
+        /* volver arriba (lado izquierdo, para no chocar con el boton flotante) */
+        .to-top { position:fixed; left:20px; bottom:20px; width:46px; height:46px; border-radius:50%; background:var(--tarjeta); border:1px solid var(--linea); color:var(--cafe-osc); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(94,63,40,0.15); cursor:pointer; z-index:120; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
         .to-top.show { opacity:1; visibility:visible; transform:none; }
         .to-top:hover { background:var(--crema-2); }
         .to-top svg { width:20px; height:20px; }
@@ -235,7 +276,7 @@
         .bot-btn { position:fixed; left:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--cafe); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; cursor:pointer; border:none; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
         .bot-btn.show { opacity:1; visibility:visible; transform:none; }
         .bot-btn svg { width:28px; height:28px; color:#fff; }
-        .bot-panel { position:fixed; left:20px; bottom:86px; width:340px; max-width:calc(100vw - 40px); height:460px; max-height:calc(100vh - 120px); background:var(--crema); border:1px solid var(--linea); border-radius:16px; box-shadow:0 20px 50px rgba(0,0,0,0.25); display:none; flex-direction:column; overflow:hidden; z-index:121; }
+        .bot-panel { position:fixed; right:20px; left:auto; bottom:90px; width:340px; max-width:calc(100vw - 40px); height:460px; max-height:calc(100vh - 130px); background:var(--crema); border:1px solid var(--linea); border-radius:16px; box-shadow:0 20px 50px rgba(0,0,0,0.25); display:none; flex-direction:column; overflow:hidden; z-index:123; }
         .bot-panel.open { display:flex; }
         .bot-head { background:var(--cafe-osc); color:#fff; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; }
         .bot-head .bt { font-family:'Marcellus',serif; font-size:1.05rem; }
@@ -269,6 +310,21 @@
         .qty button:hover { background:var(--crema-2); }
         .qty span { width:46px; text-align:center; font-weight:700; }
         .modal-info .btn { display:flex; width:100%; }
+        /* galeria del modal */
+        .modal-gallery { display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
+        .modal-thumb { width:56px; height:56px; border-radius:9px; overflow:hidden; border:1px solid var(--linea); cursor:pointer; padding:0; background:var(--crema); opacity:0.65; transition:opacity 0.2s, border-color 0.2s; }
+        .modal-thumb img { width:100%; height:100%; object-fit:cover; }
+        .modal-thumb:hover, .modal-thumb.active { opacity:1; border-color:var(--cafe); }
+        /* secciones del modal: beneficios / ingredientes */
+        .modal-section { margin:18px 0; }
+        .modal-section[hidden] { display:none; }
+        .modal-section h4 { font-family:'Mulish',sans-serif; font-size:0.7rem; letter-spacing:1.8px; text-transform:uppercase; color:var(--olivo-d); margin-bottom:10px; }
+        .modal-benef { display:flex; flex-wrap:wrap; gap:8px; }
+        .modal-benef span { font-size:0.78rem; font-weight:600; color:var(--olivo-d); background:rgba(138,154,119,0.14); border-radius:20px; padding:6px 13px; }
+        .modal-ingredientes { color:var(--suave); font-size:0.92rem; margin:0; }
+        .modal-buy { display:flex; align-items:center; gap:14px; margin-top:22px; flex-wrap:wrap; }
+        .modal-buy .qty { margin:0; }
+        .modal-buy .btn { flex:1; min-width:170px; width:auto; }
 
         .cart-overlay.open { display:block; }
         .cart-panel { position:absolute; top:0; right:0; height:100%; width:390px; max-width:90%; background:var(--crema); display:flex; flex-direction:column; box-shadow:-10px 0 40px rgba(0,0,0,0.2); transform:translateX(100%); transition:transform 0.3s; }
@@ -330,14 +386,15 @@
             .proceso .pasos { grid-template-columns:1fr; gap:40px; }
             .rejilla { grid-template-columns:repeat(2,1fr); }
         }
-        /* MENU HAMBURGUESA EN CELULAR */
-        @media (max-width:760px) {
+        /* MENU HAMBURGUESA EN CELULAR Y TABLET (evita que el header se amontone) */
+        @media (max-width:900px) {
             .menu-toggle { display:inline-flex; }
-            header { position:relative; }
+            /* el menu desplegable se ancla al header SIN romper el sticky (anida en el header fijo) */
             nav { position:absolute; top:100%; left:0; right:0; display:none; flex-direction:column; align-items:stretch; gap:0; background:rgba(245,239,230,0.98); backdrop-filter:blur(10px); border-bottom:1px solid var(--linea); padding:6px 0; box-shadow:0 14px 26px rgba(94,63,40,0.10); }
             header.nav-open nav { display:flex; }
             nav a { padding:13px 28px; border-bottom:none; border-left:3px solid transparent; }
             nav a:hover, nav a.active { border-bottom-color:transparent; border-left-color:var(--cafe); background:rgba(229,216,196,0.45); }
+            .grid-contacto { grid-template-columns:repeat(2,1fr); }
         }
         @media (max-width:640px) {
             .modal-grid { grid-template-columns:1fr; }
@@ -350,6 +407,13 @@
             .brand .name { font-size:1.5rem; }
             .hero-content .acciones .btn { flex:1; }
             .rejilla { grid-template-columns:1fr; }
+            .actions { gap:6px; }
+            .icon-btn { padding:6px; }
+            .account-btn { display:none; }   /* en pantallas pequeñas la cuenta vive en el menu/contacto */
+        }
+        @media (max-width:440px) {
+            .grid-contacto { grid-template-columns:1fr; }
+            .lang-toggle button { padding:6px 8px; }
         }
     </style>
 </head>
@@ -377,6 +441,12 @@
                     <button id="lang-es" aria-pressed="true" onclick="setLang('es')">ES</button>
                     <button id="lang-en" aria-pressed="false" onclick="setLang('en')">EN</button>
                 </div>
+                <button class="icon-btn" id="search-toggle" onclick="toggleSearch()" aria-label="Buscar productos" aria-expanded="false" aria-controls="search-panel">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                </button>
+                <a class="icon-btn account-btn" href="#contacto" aria-label="Mi cuenta / contacto">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                </a>
                 <button class="cart-btn" onclick="openCart()" aria-label="Abrir carrito">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                     <span id="cart-count" class="badge">0</span>
@@ -384,6 +454,15 @@
                 <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
                     <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
                     <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="search-panel" id="search-panel">
+            <div class="wrap search-inner">
+                <svg class="search-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                <input id="search-input" type="search" autocomplete="off" oninput="filterProducts(this.value)" onkeydown="if(event.key==='Enter'){goToProducts();}" placeholder="Buscar productos...">
+                <button class="icon-btn" onclick="toggleSearch()" aria-label="Cerrar búsqueda">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
                 </button>
             </div>
         </div>
@@ -396,10 +475,10 @@
             <div class="inner">
                 <span class="eyebrow" data-es="Artesanal · Natural · Esencial" data-en="Artisanal · Natural · Essential">Artesanal · Natural · Esencial</span>
                 <h1 data-es="Tu mejor versión comienza con el cuidado de tu piel" data-en="Your best self begins with caring for your skin">Tu mejor versión comienza con el cuidado de tu piel</h1>
-                <p class="lead" data-es="Jabones, cremas y aceites hechos a mano en pequeñas tandas, con ingredientes naturales para nutrir, hidratar y realzar tu brillo." data-en="Handmade soaps, creams and oils made in small batches with natural ingredients to nourish, hydrate and enhance your glow.">Jabones, cremas y aceites hechos a mano en pequeñas tandas, con ingredientes naturales para nutrir, hidratar y realzar tu brillo.</p>
+                <p class="lead" data-es="Jabones, cremas y aceites hechos a mano con ingredientes naturales para nutrir, hidratar y realzar tu brillo." data-en="Handmade soaps, creams and oils with natural ingredients to nourish, hydrate and enhance your glow.">Jabones, cremas y aceites hechos a mano con ingredientes naturales para nutrir, hidratar y realzar tu brillo.</p>
                 <div class="acciones">
-                    <a href="#productos" class="btn btn-crema" data-es="Ver productos" data-en="Shop products">Ver productos</a>
-                    <a href="#nosotros" class="btn btn-ghost" data-es="Conócenos" data-en="Learn more">Conócenos</a>
+                    <a href="#productos" class="btn btn-crema btn-lg" data-es="Comprar ahora" data-en="Shop now">Comprar ahora</a>
+                    <a href="#nosotros" class="btn btn-ghost btn-lg" data-es="Conócenos" data-en="Learn more">Conócenos</a>
                 </div>
             </div>
         </div>
@@ -411,7 +490,7 @@
             <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
                 <h4 data-es="Ingredientes naturales" data-en="Natural ingredients">Ingredientes naturales</h4><p data-es="Aceites y extractos de plantas" data-en="Plant oils and extracts">Aceites y extractos de plantas</p></div>
             <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                <h4 data-es="Hecho a mano" data-en="Handmade">Hecho a mano</h4><p data-es="En pequeñas tandas, con amor" data-en="In small batches, with love">En pequeñas tandas, con amor</p></div>
+                <h4 data-es="Hecho a mano" data-en="Handmade">Hecho a mano</h4><p data-es="Con dedicación y cuidado" data-en="With care and dedication">Con dedicación y cuidado</p></div>
             <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/></svg>
                 <h4 data-es="Limpio y suave" data-en="Clean and gentle">Limpio y suave</h4><p data-es="Cuida hasta la piel sensible" data-en="Cares for sensitive skin too">Cuida hasta la piel sensible</p></div>
             <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"/></svg>
@@ -435,8 +514,8 @@
         <div class="wrap">
             <div class="cabeza">
                 <span class="eyebrow" data-es="El proceso" data-en="The process">El proceso</span>
-                <h2 data-es="Nuestro ritual artesanal" data-en="Our artisanal ritual">Nuestro ritual artesanal</h2>
-                <p data-es="Cada producto nace de un proceso lento y cuidadoso, pensado para tu piel." data-en="Every product is born from a slow, careful process — made for your skin.">Cada producto nace de un proceso lento y cuidadoso, pensado para tu piel.</p>
+                <h2 data-es="El cuidado detrás de cada producto" data-en="The care behind every product">El cuidado detrás de cada producto</h2>
+                <p data-es="Cada producto nace de un proceso cuidadoso, pensado para acompañar tu piel todos los días." data-en="Every product comes from a careful process, designed to care for your skin every day.">Cada producto nace de un proceso cuidadoso, pensado para acompañar tu piel todos los días.</p>
                 <div class="linea"></div>
             </div>
             <div class="pasos">
@@ -448,7 +527,7 @@
                 <div class="paso">
                     <div class="num">02</div>
                     <h3 data-es="Hecho a mano" data-en="Handmade">Hecho a mano</h3>
-                    <p data-es="Elaboramos cada tanda a mano, en cantidades pequeñas y con dedicación." data-en="We craft every batch by hand, in small quantities and with dedication.">Elaboramos cada tanda a mano, en cantidades pequeñas y con dedicación.</p>
+                    <p data-es="Cada producto se elabora a mano, con dedicación y atención al detalle." data-en="Every product is made by hand, with dedication and attention to detail.">Cada producto se elabora a mano, con dedicación y atención al detalle.</p>
                 </div>
                 <div class="paso">
                     <div class="num">03</div>
@@ -464,8 +543,9 @@
             <div>
                 <span class="eyebrow" data-es="Nuestra historia" data-en="Our story">Nuestra historia</span>
                 <h2 data-es="Sobre GlowBest Y&amp;D" data-en="About GlowBest Y&amp;D">Sobre GlowBest Y&amp;D</h2>
-                <p data-es="En GlowBest Y&amp;D elaboramos productos artesanales para el cuidado de la piel, con ingredientes seleccionados y fórmulas pensadas para brindar hidratación, nutrición y bienestar." data-en="At GlowBest Y&amp;D we craft artisanal skincare products with selected ingredients and formulas designed to provide hydration, nourishment and wellbeing.">En GlowBest Y&amp;D elaboramos productos artesanales para el cuidado de la piel, con ingredientes seleccionados y fórmulas pensadas para brindar hidratación, nutrición y bienestar.</p>
-                <p data-es="Creemos en lo natural, en lo hecho a mano y en el cuidado que respeta tu piel y al planeta. Cada producto nace en pequeñas tandas, con dedicación." data-en="We believe in natural, handmade care that respects your skin and the planet. Every product is made in small batches, with dedication.">Creemos en lo natural, en lo hecho a mano y en el cuidado que respeta tu piel y al planeta. Cada producto nace en pequeñas tandas, con dedicación.</p>
+                <p data-es="GlowBest nació de un gesto de amor. Durante mucho tiempo busqué productos que cuidaran mi piel y se sintieran realmente bien en mi rutina diaria, pero ninguno lograba quedarse conmigo." data-en="GlowBest began as a gesture of love. For a long time I looked for products that would care for my skin and truly feel good in my daily routine, but none of them stayed with me.">GlowBest nació de un gesto de amor. Durante mucho tiempo busqué productos que cuidaran mi piel y se sintieran realmente bien en mi rutina diaria, pero ninguno lograba quedarse conmigo.</p>
+                <p data-es="Al ver esa búsqueda, mi esposo decidió sorprenderme: con sus propias manos creó un jabón pensado especialmente para mí. No era un proyecto, era un detalle hecho con dedicación y cariño." data-en="Seeing that search, my husband decided to surprise me: with his own hands he created a soap made especially for me. It wasn't a project — it was a gift made with dedication and care.">Al ver esa búsqueda, mi esposo decidió sorprenderme: con sus propias manos creó un jabón pensado especialmente para mí. No era un proyecto, era un detalle hecho con dedicación y cariño.</p>
+                <p data-es="Ese primer jabón despertó el interés de familiares y personas cercanas que también buscaban productos elaborados con ingredientes cuidadosamente seleccionados. Poco a poco, ese gesto personal creció de forma natural hasta convertirse en GlowBest." data-en="That first soap caught the attention of family and close friends who were also looking for products made with carefully selected ingredients. Little by little, that personal gesture grew naturally into GlowBest.">Ese primer jabón despertó el interés de familiares y personas cercanas que también buscaban productos elaborados con ingredientes cuidadosamente seleccionados. Poco a poco, ese gesto personal creció de forma natural hasta convertirse en GlowBest.</p>
             </div>
             <div>
                 <svg class="sello" viewBox="0 0 120 120" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
@@ -491,7 +571,7 @@
             <div class="lista">
                 <details>
                     <summary><span data-es="¿Sus productos son naturales?" data-en="Are your products natural?">¿Sus productos son naturales?</span></summary>
-                    <p data-es="Sí. Elaboramos nuestros jabones, cremas y aceites con ingredientes naturales, como aceites y extractos de plantas, en pequeñas tandas." data-en="Yes. We make our soaps, creams and oils with natural ingredients such as plant oils and extracts, in small batches.">Sí. Elaboramos nuestros jabones, cremas y aceites con ingredientes naturales, como aceites y extractos de plantas, en pequeñas tandas.</p>
+                    <p data-es="Sí. Elaboramos nuestros jabones, cremas y aceites con ingredientes naturales cuidadosamente seleccionados, como aceites y extractos de plantas." data-en="Yes. We make our soaps, creams and oils with carefully selected natural ingredients, such as plant oils and extracts.">Sí. Elaboramos nuestros jabones, cremas y aceites con ingredientes naturales cuidadosamente seleccionados, como aceites y extractos de plantas.</p>
                 </details>
                 <details>
                     <summary><span data-es="¿Son aptos para piel sensible?" data-en="Are they suitable for sensitive skin?">¿Son aptos para piel sensible?</span></summary>
@@ -509,27 +589,32 @@
                 <p data-es="Escríbenos o llámanos para hacer tu pedido o resolver cualquier duda." data-en="Message or call us to place your order or ask anything.">Escríbenos o llámanos para hacer tu pedido o resolver cualquier duda.</p>
                 <div class="linea"></div>
             </div>
-            <div class="tarjeta">
-                <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
-                    <div><div class="c-label">WhatsApp</div><div class="c-val"><a href="https://wa.me/18633380581">(863) 338-0581</a></div></div>
-                </div>
-                <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <div><div class="c-label" data-es="Llamar" data-en="Call">Llamar</div><div class="c-val"><a href="tel:+18633380581">+1 (863) 338-0581</a></div></div>
-                </div>
-                <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                    <div><div class="c-label">Email</div><div class="c-val"><a href="mailto:glowbestyd8996@gmail.com">glowbestyd8996@gmail.com</a></div></div>
-                </div>
-                <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
-                    <div><div class="c-label">Instagram</div><div class="c-val"><a href="https://www.instagram.com/yarenitagonzalez" rel="noopener">@yarenitagonzalez</a></div></div>
-                </div>
-                <div class="c-row">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <div><div class="c-label" data-es="Ubicación" data-en="Location">Ubicación</div><div class="c-val">Miami, Florida</div></div>
-                </div>
+            <div class="grid-contacto">
+                <a class="c-tile" href="https://wa.me/18633380581" target="_blank" rel="noopener">
+                    <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg></span>
+                    <span class="c-label">WhatsApp</span>
+                    <span class="c-val">(863) 338-0581</span>
+                </a>
+                <a class="c-tile" href="tel:+18633380581">
+                    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                    <span class="c-label" data-es="Llamar" data-en="Call">Llamar</span>
+                    <span class="c-val">+1 (863) 338-0581</span>
+                </a>
+                <a class="c-tile" href="mailto:glowbestyd8996@gmail.com">
+                    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+                    <span class="c-label">Email</span>
+                    <span class="c-val">glowbestyd8996@gmail.com</span>
+                </a>
+                <a class="c-tile" href="https://www.instagram.com/yarenitagonzalez" target="_blank" rel="noopener">
+                    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+                    <span class="c-label">Instagram</span>
+                    <span class="c-val">@yarenitagonzalez</span>
+                </a>
+                <a class="c-tile" href="https://www.google.com/maps/search/?api=1&amp;query=Miami,Florida" target="_blank" rel="noopener">
+                    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                    <span class="c-label" data-es="Ubicación" data-en="Location">Ubicación</span>
+                    <span class="c-val">Miami, Florida</span>
+                </a>
             </div>
             <div class="botones">
                 <a href="https://wa.me/18633380581" class="btn btn-cafe" data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
@@ -561,13 +646,22 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </button>
 
-    <a class="wa-float" href="https://wa.me/18633380581" aria-label="Escribir por WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
-    </a>
-
-    <button class="bot-btn" id="bot-btn" onclick="toggleBot()" aria-label="Abrir asistente virtual" aria-expanded="false" aria-controls="bot-panel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>
-    </button>
+    <div class="fab" id="fab">
+        <div class="fab-actions" id="fab-actions">
+            <a class="fab-action wa" href="https://wa.me/18633380581" target="_blank" rel="noopener" tabindex="-1" aria-label="WhatsApp">
+                <span class="lbl">WhatsApp</span>
+                <span class="ball"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg></span>
+            </a>
+            <button class="fab-action chat" type="button" onclick="openChatFromFab()" tabindex="-1" aria-label="Chat">
+                <span class="lbl" data-es="Chat" data-en="Chat">Chat</span>
+                <span class="ball"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></span>
+            </button>
+        </div>
+        <button class="fab-main" id="fab-main" type="button" onclick="toggleFab()" aria-label="Ayuda y contacto" aria-expanded="false" aria-controls="fab-actions">
+            <svg class="fab-ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>
+            <svg class="fab-ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+    </div>
     <div class="bot-panel" id="bot-panel" role="dialog" aria-label="Asistente virtual GlowBest">
         <div class="bot-head">
             <div><div class="bt">Asistente GlowBest</div><div class="bs" data-es="Pregúntame sobre los productos" data-en="Ask me about the products">Pregúntame sobre los productos</div></div>
@@ -585,13 +679,26 @@
         <div class="modal">
             <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">×</button>
             <div class="modal-grid">
-                <div class="modal-foto"><img id="m-img" src="" alt=""></div>
+                <div class="modal-foto">
+                    <img id="m-img" src="" alt="">
+                    <div class="modal-gallery" id="m-gallery"></div>
+                </div>
                 <div class="modal-info">
                     <h3 id="m-name"></h3>
                     <div class="modal-price" id="m-price"></div>
                     <p id="m-desc"></p>
-                    <div class="qty" role="group" aria-label="Cantidad"><button onclick="modalQtyChange(-1)" aria-label="Quitar uno">−</button><span id="m-qty">1</span><button onclick="modalQtyChange(1)" aria-label="Agregar uno">+</button></div>
-                    <button class="btn btn-cafe" id="m-add" onclick="addFromModal()"></button>
+                    <div class="modal-section" id="m-benef-wrap" hidden>
+                        <h4 data-es="Beneficios" data-en="Benefits">Beneficios</h4>
+                        <div class="modal-benef" id="m-benef"></div>
+                    </div>
+                    <div class="modal-section" id="m-ingr-wrap" hidden>
+                        <h4 data-es="Ingredientes" data-en="Ingredients">Ingredientes</h4>
+                        <p class="modal-ingredientes" id="m-ingr"></p>
+                    </div>
+                    <div class="modal-buy">
+                        <div class="qty" role="group" aria-label="Cantidad"><button onclick="modalQtyChange(-1)" aria-label="Quitar uno">−</button><span id="m-qty">1</span><button onclick="modalQtyChange(1)" aria-label="Agregar uno">+</button></div>
+                        <button class="btn btn-cafe" id="m-add" onclick="addFromModal()"></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -620,32 +727,42 @@
         var GEMINI_API_KEY = '';
         var GEMINI_MODEL = 'gemini-2.5-flash';
 
-        /* ====== LISTA DE PRODUCTOS (edita nombre, descripcion y PRECIO) ======
-           "precio": pon el numero, ej. 8.50. Si lo dejas en 0 muestra "Precio a consultar". */
+        /* ====== LISTA DE PRODUCTOS ======
+           PRECIO: pon el numero real, ej. 8.50. Si lo dejas en 0 muestra "Precio a consultar".
+                   (Los precios actuales son DE EJEMPLO; cambialos por los tuyos.)
+           imgs:   galeria opcional. Si agregas mas fotos, ponlas aqui: ['images/a.jpeg','images/b.jpeg'].
+           benef:  beneficios cortos (chips) que se ven en la tarjeta y el modal.
+           ingredientes: opcional. Cuando lo tengas, escribelo y aparecera solo en el modal. */
         var productos = [
-            { id:'syndet', img:'images/syndet.jpg.jpeg', precio:0,
+            { id:'syndet', img:'images/syndet.jpg.jpeg', precio:9.00,
               nombre:{es:'Syndet Bar', en:'Syndet Bar'}, desc:{es:'Limpieza suave para la piel.', en:'Gentle cleansing for the skin.'},
+              benef:{es:['Limpieza suave','Uso diario','Piel sensible'], en:['Gentle cleansing','Daily use','Sensitive skin']},
               detalle:{es:'Barra limpiadora suave que respeta el manto natural de la piel. Ideal para uso diario en rostro y cuerpo, incluso en pieles sensibles.', en:'A gentle cleansing bar that respects the skin\'s natural barrier. Perfect for daily use on face and body, even for sensitive skin.'} },
-            { id:'bodycream', img:'images/bodycream.jpg.jpeg', precio:0,
+            { id:'bodycream', img:'images/bodycream.jpg.jpeg', precio:16.00,
               nombre:{es:'Body Cream', en:'Body Cream'}, desc:{es:'Crema corporal hidratante.', en:'Hydrating body cream.'},
+              benef:{es:['Hidratación profunda','Absorción rápida','Piel suave'], en:['Deep hydration','Fast absorbing','Soft skin']},
               detalle:{es:'Crema corporal de absorción rápida que hidrata en profundidad y deja la piel suave y nutrida durante todo el día.', en:'Fast-absorbing body cream that deeply hydrates and leaves skin soft and nourished all day.'} },
-            { id:'scrub', img:'images/scrub.jpg.jpeg', precio:0,
+            { id:'scrub', img:'images/scrub.jpg.jpeg', precio:14.00,
               nombre:{es:'Sugar Scrub', en:'Sugar Scrub'}, desc:{es:'Exfoliante corporal de azúcar.', en:'Sugar body scrub.'},
+              benef:{es:['Exfolia','Piel luminosa','Suaviza'], en:['Exfoliates','Glowing skin','Smooths']},
               detalle:{es:'Exfoliante de azúcar natural que elimina células muertas y deja la piel suave, luminosa y lista para hidratar.', en:'Natural sugar scrub that removes dead skin and leaves your skin smooth, glowing and ready to moisturize.'} },
-            { id:'oil', img:'images/oil.jpg.jpeg', precio:0,
+            { id:'oil', img:'images/oil.jpg.jpeg', precio:18.00,
               nombre:{es:'Body Oil', en:'Body Oil'}, desc:{es:'Aceite corporal nutritivo e hidratante.', en:'Nourishing & hydrating body oil.'},
+              benef:{es:['Nutre','Brillo natural','Sin sensación grasosa'], en:['Nourishes','Natural glow','Non-greasy']},
               detalle:{es:'Aceite corporal ligero que nutre e hidrata, aportando brillo natural sin sensación grasosa.', en:'Lightweight body oil that nourishes and hydrates, adding a natural glow without feeling greasy.'} },
-            { id:'facial', img:'images/facial.jpg.jpeg', precio:0,
+            { id:'facial', img:'images/facial.jpg.jpeg', precio:9.00,
               nombre:{es:'Facial Bar', en:'Facial Bar'}, desc:{es:'Limpieza suave para el rostro.', en:'Gentle facial cleansing bar.'},
+              benef:{es:['Limpia el rostro','Refresca','Equilibra'], en:['Cleanses face','Refreshes','Balances']},
               detalle:{es:'Barra facial suave que limpia, equilibra y refresca el rostro, dejándolo fresco y cuidado.', en:'Gentle facial bar that cleanses, balances and refreshes your face, leaving it fresh and cared for.'} },
-            { id:'kit', img:'images/kit.jpg.jpeg', precio:0, destacado:true,
+            { id:'kit', img:'images/kit.jpg.jpeg', precio:55.00, destacado:true,
               nombre:{es:'GlowBest Complete Kit', en:'GlowBest Complete Kit'}, desc:{es:'La colección completa para el cuidado de la piel.', en:'The complete skincare collection.'},
+              benef:{es:['Rutina completa','Mejor precio','Regalo ideal'], en:['Full routine','Best value','Perfect gift']},
               detalle:{es:'Nuestra colección completa: la rutina ideal para limpiar, exfoliar, hidratar y nutrir tu piel de principio a fin.', en:'Our full collection: the ideal routine to cleanse, exfoliate, hydrate and nourish your skin from start to finish.'} }
         ];
 
         var T = {
-            es:{ viewProduct:'Ver producto', addToCart:'Agregar al carrito', onRequest:'Precio a consultar', cartTitle:'Tu carrito', empty:'Tu carrito está vacío', total:'Total', checkout:'Finalizar pedido por WhatsApp', orderHi:'Hola GlowBest Y&D, quiero hacer este pedido:', featured:'Más vendido', openMenu:'Abrir menú', closeMenu:'Cerrar menú' },
-            en:{ viewProduct:'View product', addToCart:'Add to cart', onRequest:'Price on request', cartTitle:'Your cart', empty:'Your cart is empty', total:'Total', checkout:'Checkout via WhatsApp', orderHi:'Hi GlowBest Y&D, I would like to order:', featured:'Bestseller', openMenu:'Open menu', closeMenu:'Close menu' }
+            es:{ viewProduct:'Ver producto', addToCart:'Agregar al carrito', onRequest:'Precio a consultar', cartTitle:'Tu carrito', empty:'Tu carrito está vacío', total:'Total', subtotal:'Subtotal', checkout:'Finalizar pedido por WhatsApp', orderHi:'Hola GlowBest Y&D, quiero hacer este pedido:', featured:'Más vendido', openMenu:'Abrir menú', closeMenu:'Cerrar menú', searchPh:'Buscar productos...', noResults:'No encontramos productos con ese nombre.' },
+            en:{ viewProduct:'View product', addToCart:'Add to cart', onRequest:'Price on request', cartTitle:'Your cart', empty:'Your cart is empty', total:'Total', subtotal:'Subtotal', checkout:'Checkout via WhatsApp', orderHi:'Hi GlowBest Y&D, I would like to order:', featured:'Bestseller', openMenu:'Open menu', closeMenu:'Close menu', searchPh:'Search products...', noResults:'No products match that name.' }
         };
 
         /* Idioma: recuerda la eleccion y detecta el del navegador la primera vez */
@@ -653,7 +770,7 @@
         try { savedLang = localStorage.getItem('gb_lang'); } catch(e) {}
         lang = savedLang || ((navigator.language || 'es').slice(0,2) === 'en' ? 'en' : 'es');
 
-        var cart = [], modalId = null, modalQty = 1, lastFocus = null;
+        var cart = [], modalId = null, modalQty = 1, lastFocus = null, searchQuery = '';
         try { cart = JSON.parse(localStorage.getItem('gb_cart')) || []; } catch(e) { cart = []; }
 
         function saveCart(){ try { localStorage.setItem('gb_cart', JSON.stringify(cart)); } catch(e) {} }
@@ -663,13 +780,24 @@
         function find(id){ return productos.find(function(x){ return x.id===id; }); }
 
         function renderProducts(){
-            document.getElementById('rejilla').innerHTML = productos.map(function(p){
+            var rejilla = document.getElementById('rejilla');
+            var q = searchQuery.trim().toLowerCase();
+            var lista = q ? productos.filter(function(p){
+                return (p.nombre[lang]+' '+p.desc[lang]).toLowerCase().indexOf(q) !== -1;
+            }) : productos;
+            if(lista.length === 0){
+                rejilla.innerHTML = '<p class="sin-resultados">'+T[lang].noResults+'</p>';
+                return;
+            }
+            rejilla.innerHTML = lista.map(function(p){
                 var nombre = escapeHtml(p.nombre[lang]);
                 var badge = p.destacado ? '<span class="tag-kit">'+T[lang].featured+'</span>' : '';
+                var chips = (p.benef && p.benef[lang]) ? '<div class="chips">'+p.benef[lang].map(function(b){ return '<span class="chip">'+escapeHtml(b)+'</span>'; }).join('')+'</div>' : '';
                 return '<article class="card">'+
                   '<button class="foto" onclick="openProduct(\''+p.id+'\')" aria-label="'+T[lang].viewProduct+': '+nombre+'">'+badge+'<img src="'+p.img+'" alt="'+nombre+'" loading="lazy" decoding="async"></button>'+
                   '<div class="card-body">'+
                     '<h3>'+nombre+'</h3><p>'+escapeHtml(p.desc[lang])+'</p>'+
+                    chips+
                     '<div class="precio-row"><span class="precio">'+priceText(p.precio)+'</span>'+
                     '<button class="btn btn-cafe" onclick="openProduct(\''+p.id+'\')">'+T[lang].viewProduct+'</button></div>'+
                   '</div>'+
@@ -681,16 +809,42 @@
         function openProduct(id){
             var p=find(id); modalId=id; modalQty=1;
             lastFocus = document.activeElement;
-            document.getElementById('m-img').src=p.img;
-            document.getElementById('m-img').alt=p.nombre[lang];
+            var imgs = (p.imgs && p.imgs.length) ? p.imgs : [p.img];
+            var mainImg = document.getElementById('m-img');
+            mainImg.src = imgs[0]; mainImg.alt = p.nombre[lang];
+            /* galeria de imagenes (se muestra solo si hay mas de una) */
+            var gal = document.getElementById('m-gallery');
+            if(imgs.length > 1){
+                gal.innerHTML = imgs.map(function(src,i){
+                    return '<button class="modal-thumb'+(i===0?' active':'')+'" onclick="setModalImg(\''+src+'\',this)" aria-label="Foto '+(i+1)+'"><img src="'+src+'" alt="" loading="lazy"></button>';
+                }).join('');
+                gal.style.display = 'flex';
+            } else { gal.innerHTML = ''; gal.style.display = 'none'; }
             document.getElementById('m-name').textContent=p.nombre[lang];
             document.getElementById('m-price').textContent=priceText(p.precio);
             document.getElementById('m-desc').textContent=p.detalle[lang];
+            /* beneficios */
+            var bw = document.getElementById('m-benef-wrap');
+            if(p.benef && p.benef[lang] && p.benef[lang].length){
+                document.getElementById('m-benef').innerHTML = p.benef[lang].map(function(b){ return '<span>'+escapeHtml(b)+'</span>'; }).join('');
+                bw.hidden = false;
+            } else { bw.hidden = true; }
+            /* ingredientes (opcional: aparece cuando agregues p.ingredientes) */
+            var iw = document.getElementById('m-ingr-wrap');
+            if(p.ingredientes && p.ingredientes[lang]){
+                document.getElementById('m-ingr').textContent = p.ingredientes[lang];
+                iw.hidden = false;
+            } else { iw.hidden = true; }
             document.getElementById('m-qty').textContent=modalQty;
             document.getElementById('m-add').textContent=T[lang].addToCart;
             var m=document.getElementById('modal');
             m.classList.add('open'); document.body.style.overflow='hidden';
             focusFirst(m);
+        }
+        function setModalImg(src, btn){
+            document.getElementById('m-img').src = src;
+            document.querySelectorAll('#m-gallery .modal-thumb').forEach(function(t){ t.classList.remove('active'); });
+            if(btn) btn.classList.add('active');
         }
         function closeModal(){ document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; restoreFocus(); }
         function modalQtyChange(d){ modalQty=Math.max(1,modalQty+d); document.getElementById('m-qty').textContent=modalQty; }
@@ -733,6 +887,7 @@
             document.getElementById('lang-es').setAttribute('aria-pressed', l==='es');
             document.getElementById('lang-en').setAttribute('aria-pressed', l==='en');
             document.getElementById('bot-text').placeholder = (l==='es'?'Escribe tu pregunta...':'Type your question...');
+            document.getElementById('search-input').placeholder = T[l].searchPh;
             renderProducts(); renderCart();
             if(document.getElementById('modal').classList.contains('open') && modalId){ openProduct(modalId); }
         }
@@ -766,7 +921,7 @@
         }
         function toggleBot(){
             var p=document.getElementById('bot-panel'); var open=p.classList.toggle('open');
-            document.getElementById('bot-btn').setAttribute('aria-expanded', open);
+            var bb=document.getElementById('bot-btn'); if(bb) bb.setAttribute('aria-expanded', open);
             if(open){
                 document.getElementById('bot-text').focus();
                 if(botHistory.length===0){ addBotMsg(lang==='es'?'¡Hola! Soy el asistente de GlowBest. ¿En qué puedo ayudarte con nuestros productos?':'Hi! I am the GlowBest assistant. How can I help you with our products?','bot'); }
@@ -805,32 +960,80 @@
         document.getElementById('modal').addEventListener('click',function(e){ if(e.target.id==='modal') closeModal(); });
         document.getElementById('cart').addEventListener('click',function(e){ if(e.target.id==='cart') closeCart(); });
         document.addEventListener('keydown',function(e){
-            if(e.key==='Escape'){ closeModal(); closeCart(); if(document.querySelector('header').classList.contains('nav-open')) toggleMenu(); }
+            if(e.key==='Escape'){
+                closeModal(); closeCart();
+                if(document.querySelector('header').classList.contains('nav-open')) toggleMenu();
+                if(searchPanel && searchPanel.classList.contains('open')) toggleSearch();
+                if(fab && fab.classList.contains('open')){ fab.classList.remove('open'); fabMain.setAttribute('aria-expanded','false'); }
+            }
             trapFocus(e);
         });
 
-        /* ===== Menu movil, botones flotantes, sombra de header, link activo ===== */
-        var waFloat = document.querySelector('.wa-float');
-        var botBtn = document.getElementById('bot-btn');
+        /* ===== Menu movil, boton flotante, buscador, scroll suave, header ===== */
+        var fab = document.getElementById('fab');
+        var fabMain = document.getElementById('fab-main');
         var toTopBtn = document.getElementById('to-top');
         var headerEl = document.querySelector('header');
         var menuToggleBtn = document.getElementById('menu-toggle');
+        var searchToggleBtn = document.getElementById('search-toggle');
+        var searchPanel = document.getElementById('search-panel');
         var navLinks = [].slice.call(document.querySelectorAll('nav a[href^="#"]'));
         var navSections = navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+        var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         function toggleMenu(){
             var open = headerEl.classList.toggle('nav-open');
             menuToggleBtn.setAttribute('aria-expanded', open);
             menuToggleBtn.setAttribute('aria-label', open ? T[lang].closeMenu : T[lang].openMenu);
         }
-        function scrollTop(){ window.scrollTo({ top:0, behavior:'smooth' }); }
-        navLinks.forEach(function(a){ a.addEventListener('click', function(){ if(headerEl.classList.contains('nav-open')) toggleMenu(); }); });
+        function scrollTop(){ window.scrollTo({ top:0, behavior: prefersReduced?'auto':'smooth' }); }
+
+        /* Boton flotante fusionado (WhatsApp + Chat) */
+        function toggleFab(){ var open = fab.classList.toggle('open'); fabMain.setAttribute('aria-expanded', open); }
+        function openChatFromFab(){
+            fab.classList.remove('open'); fabMain.setAttribute('aria-expanded','false');
+            if(!document.getElementById('bot-panel').classList.contains('open')) toggleBot();
+        }
+        document.addEventListener('click', function(e){
+            if(fab.classList.contains('open') && !fab.contains(e.target)){ fab.classList.remove('open'); fabMain.setAttribute('aria-expanded','false'); }
+        });
+
+        /* Buscador */
+        function toggleSearch(){
+            var open = searchPanel.classList.toggle('open');
+            searchToggleBtn.setAttribute('aria-expanded', open);
+            if(open){ setTimeout(function(){ document.getElementById('search-input').focus(); }, 60); }
+            else { var si=document.getElementById('search-input'); si.value=''; if(searchQuery){ searchQuery=''; renderProducts(); } }
+        }
+        function filterProducts(q){ searchQuery = q || ''; renderProducts(); }
+        function goToProducts(){ smoothScrollTo('#productos'); if(searchPanel.classList.contains('open')) toggleSearch(); }
+
+        /* ===== Scroll suave que respeta la altura REAL del header (arregla el salto en tablet/movil) ===== */
+        function headerOffset(){ return (headerEl ? headerEl.getBoundingClientRect().height : 0) + 14; }
+        function smoothScrollTo(hash){
+            var target = (hash && hash.length>1) ? document.querySelector(hash) : null;
+            if(!target){ window.scrollTo({ top:0, behavior: prefersReduced?'auto':'smooth' }); return; }
+            var top = window.pageYOffset + target.getBoundingClientRect().top - headerOffset();
+            window.scrollTo({ top: Math.max(0, top), behavior: prefersReduced?'auto':'smooth' });
+        }
+        [].slice.call(document.querySelectorAll('a[href^="#"]')).forEach(function(a){
+            var hash = a.getAttribute('href');
+            if(!hash || hash.length<2) return;
+            a.addEventListener('click', function(e){
+                if(!document.querySelector(hash)) return;
+                e.preventDefault();
+                if(headerEl.classList.contains('nav-open')) toggleMenu();
+                if(searchPanel.classList.contains('open')) toggleSearch();
+                /* esperar dos frames a que el layout se asiente (menu cerrado) antes de medir y saltar */
+                requestAnimationFrame(function(){ requestAnimationFrame(function(){ smoothScrollTo(hash); }); });
+                if(history.replaceState) history.replaceState(null, '', hash);
+            });
+        });
 
         function onScroll(){
             var y = window.scrollY || window.pageYOffset || 0;
             var show = y > 320;
-            if(waFloat){ waFloat.classList.toggle('show', show); }
-            if(botBtn){ botBtn.classList.toggle('show', show); }
+            if(fab){ fab.classList.toggle('show', show); }
             if(toTopBtn){ toTopBtn.classList.toggle('show', show); }
             if(headerEl){ headerEl.classList.toggle('scrolled', y > 20); }
             var idx = -1;
