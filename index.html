@@ -1,28 +1,487 @@
-vte('aria-pressed', l==='en');
-            document.getElementById('bot-text').placeholder = (l==='es'?'Escribe tu pregunta...':'Type your question...');
+<!DOCTYPE html>
+<!--
+  GlowBest Y&D - index.html
+  Menu fijo discreto, imagen a todo lo ancho, botones finos, ventana de producto,
+  carrito, Instagram, boton flotante de WhatsApp y contacto ordenado.
+  >>> PARA PONER PRECIOS: baja hasta "LISTA DE PRODUCTOS" y cambia "precio".
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowBest Y&D · Jabones y cuidado artesanal de la piel</title>
+    <meta name="description" content="GlowBest Y&D — jabones, cremas y aceites artesanales para el cuidado natural de la piel. Hechos a mano en Miami, Florida.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Marcellus&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --crema:#F5EFE6; --crema-2:#EDE2D0; --tarjeta:#FFFDF9; --cafe:#8B5E3C; --cafe-osc:#5E3F28; --olivo:#8A9A77; --texto:#3A2E25; --suave:#6E5E50; --linea:#E5D8C4; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Mulish',-apple-system,'Segoe UI',sans-serif; color:var(--texto); background:var(--crema); line-height:1.7; }
+        h1,h2,h3,h4 { font-family:'Cormorant Garamond',Georgia,serif; color:var(--cafe-osc); line-height:1.15; font-weight:600; }
+        img { max-width:100%; display:block; }
+        a { color:inherit; }
+        .wrap { max-width:1140px; margin:0 auto; padding:0 28px; }
+        .eyebrow { font-size:0.72rem; letter-spacing:3.5px; text-transform:uppercase; color:var(--olivo); font-weight:700; }
+
+        .btn { display:inline-block; cursor:pointer; border:none; font-family:'Mulish',sans-serif; font-weight:600; font-size:0.82rem; letter-spacing:1px; text-decoration:none; padding:13px 30px; border-radius:6px; transition:background-color 0.2s,color 0.2s; }
+        .btn-cafe { background:var(--cafe); color:#fff; }
+        .btn-cafe:hover { background:var(--cafe-osc); }
+        .btn-linea { background:transparent; color:var(--cafe-osc); border:1px solid var(--cafe); }
+        .btn-linea:hover { background:var(--cafe); color:#fff; }
+
+        /* MENU FIJO Y DISCRETO */
+        header { position:sticky; top:0; z-index:50; background:rgba(245,239,230,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(229,216,196,0.6); transition:box-shadow 0.3s, background 0.3s; }
+        header.scrolled { background:rgba(245,239,230,0.97); box-shadow:0 4px 22px rgba(94,63,40,0.09); }
+        .nav-bar { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:13px 0; }
+        .brand { text-decoration:none; }
+        .brand .name { font-family:'Marcellus',serif; font-size:1.75rem; font-weight:400; letter-spacing:1px; color:var(--cafe-osc); }
+        nav { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+        nav a { text-decoration:none; color:var(--texto); font-weight:600; font-size:0.76rem; letter-spacing:1.4px; text-transform:uppercase; padding-bottom:3px; border-bottom:2px solid transparent; transition:0.2s; }
+        nav a:hover, nav a.active { color:var(--cafe); border-bottom-color:var(--cafe); }
+        .actions { display:flex; align-items:center; gap:12px; }
+        .lang-toggle { display:inline-flex; border:1px solid var(--linea); border-radius:6px; overflow:hidden; }
+        .lang-toggle button { background:transparent; border:none; padding:6px 11px; font-size:0.72rem; font-weight:700; letter-spacing:1px; cursor:pointer; color:var(--suave); }
+        .lang-toggle button.active { background:var(--cafe); color:#fff; }
+        .cart-btn { position:relative; background:transparent; border:none; cursor:pointer; color:var(--cafe-osc); padding:6px; }
+        .cart-btn svg { width:24px; height:24px; }
+        .badge { position:absolute; top:-2px; right:-4px; background:var(--olivo); color:#fff; font-size:0.64rem; font-weight:700; min-width:17px; height:17px; border-radius:50%; display:none; align-items:center; justify-content:center; padding:0 4px; }
+
+        /* IMAGEN A TODO LO ANCHO */
+        .banner { position:relative; }
+        .banner img { width:100%; height:78vh; min-height:420px; max-height:760px; object-fit:cover; object-position:center; }
+        .banner::after { content:""; position:absolute; left:0; right:0; bottom:0; height:90px; background:linear-gradient(to top, var(--crema), rgba(245,239,230,0)); pointer-events:none; }
+
+        .intro { text-align:center; padding:60px 0 80px; }
+        .intro h1 { font-size:3rem; color:var(--cafe-osc); margin:14px auto 16px; max-width:780px; }
+        .intro p.lead { font-size:1.15rem; color:var(--suave); max-width:560px; margin:0 auto 28px; }
+        .intro .acciones { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+        .valores { background:var(--crema-2); padding:46px 0; }
+        .valores .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:26px; text-align:center; }
+        .valor svg { width:30px; height:30px; color:var(--olivo); margin-bottom:10px; }
+        .valor h4 { font-family:'Mulish',sans-serif; font-size:0.92rem; font-weight:700; letter-spacing:0.5px; color:var(--cafe-osc); margin-bottom:2px; }
+        .valor p { font-size:0.82rem; color:var(--suave); }
+
+        .cabeza { text-align:center; max-width:620px; margin:0 auto 50px; }
+        .cabeza h2 { font-size:2.8rem; margin:10px 0 8px; }
+        .cabeza p { color:var(--suave); }
+        .cabeza .linea { width:56px; height:3px; background:var(--olivo); border-radius:2px; margin:16px auto 0; }
+
+        .productos { padding:90px 0; }
+        .rejilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:26px; }
+        .card { background:var(--tarjeta); border:1px solid var(--linea); border-radius:16px; overflow:hidden; text-align:left; display:flex; flex-direction:column; box-shadow:0 6px 20px rgba(94,63,40,0.05); transition:transform 0.25s,box-shadow 0.25s; }
+        .card:hover { transform:translateY(-6px); box-shadow:0 20px 44px rgba(94,63,40,0.14); }
+        .card .foto { width:100%; aspect-ratio:1/1; background:var(--crema); overflow:hidden; cursor:pointer; }
+        .card .foto img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+        .card:hover .foto img { transform:scale(1.06); }
+        .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex-grow:1; }
+        .card h3 { font-size:1.3rem; margin-bottom:4px; color:var(--cafe-osc); }
+        .card-body p { font-size:0.9rem; color:var(--suave); margin-bottom:16px; flex-grow:1; }
+        .precio-row { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+        .precio-row .precio { color:var(--cafe-osc); font-weight:700; font-size:1.12rem; font-family:'Mulish',sans-serif; }
+        .precio-row .btn { padding:10px 18px; font-size:0.74rem; white-space:nowrap; }
+
+        .nosotros { background:var(--crema-2); padding:90px 0; }
+        .nosotros .grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+        .nosotros h2 { font-size:2.8rem; margin:10px 0 18px; }
+        .nosotros p { color:var(--suave); font-size:1.05rem; margin-bottom:14px; }
+        .quote { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:1.9rem; color:var(--cafe); line-height:1.4; border-left:3px solid var(--olivo); padding-left:26px; }
+
+        /* CONTACTO ORDENADO */
+        .contacto { padding:90px 0; }
+        .contacto .cabeza { margin-bottom:36px; }
+        .contacto .tarjeta { background:var(--tarjeta); border:1px solid var(--linea); border-radius:16px; padding:14px 38px; max-width:560px; margin:0 auto; box-shadow:0 14px 40px rgba(94,63,40,0.07); }
+        .c-row { display:flex; align-items:center; gap:16px; padding:18px 0; border-bottom:1px solid var(--linea); text-align:left; }
+        .c-row:last-child { border-bottom:none; }
+        .c-row svg { width:22px; height:22px; color:var(--cafe); flex:none; }
+        .c-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:1.6px; color:var(--olivo); font-weight:700; margin-bottom:2px; }
+        .c-val { font-size:1.05rem; color:var(--texto); }
+        .c-val a { color:var(--cafe); text-decoration:none; font-weight:600; }
+        .c-val a:hover { text-decoration:underline; }
+        .contacto .botones { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:30px; }
+
+        footer { background:var(--cafe-osc); color:#EBDFCF; padding:46px 0 28px; text-align:center; }
+        footer .name { font-family:'Marcellus',serif; font-size:1.85rem; font-weight:400; letter-spacing:1px; color:#fff; }
+        footer .tag { font-size:0.72rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--olivo); margin-bottom:14px; }
+        .social { display:flex; justify-content:center; gap:16px; margin:18px 0; }
+        .social a { color:#EBDFCF; width:42px; height:42px; border:1px solid rgba(235,223,207,0.35); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:0.2s; }
+        .social a:hover { background:rgba(235,223,207,0.15); color:#fff; }
+        .social svg { width:20px; height:20px; }
+        footer .links { margin:14px 0; }
+        footer .links a { color:#EBDFCF; text-decoration:none; margin:0 12px; font-weight:600; font-size:0.9rem; }
+        footer .links a:hover { color:#fff; }
+        footer .copy { font-size:0.78rem; color:#B79E84; margin-top:12px; }
+
+        .wa-float { position:fixed; right:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity 0.3s, transform 0.3s, visibility 0.3s; }
+        .wa-float.show { opacity:1; visibility:visible; transform:none; }
+        .wa-float svg { width:30px; height:30px; color:#fff; }
+
+        .js .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+        .js .reveal.visible { opacity:1; transform:none; }
+        @media (prefers-reduced-motion: reduce) { .js .reveal { opacity:1; transform:none; transition:none; } }
+
+        /* ASISTENTE VIRTUAL (Gemini) */
+        .bot-btn { position:fixed; left:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--cafe); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.25); z-index:120; cursor:pointer; border:none; }
+        .bot-btn svg { width:28px; height:28px; color:#fff; }
+        .bot-panel { position:fixed; left:20px; bottom:86px; width:340px; max-width:calc(100vw - 40px); height:460px; max-height:calc(100vh - 120px); background:var(--crema); border:1px solid var(--linea); border-radius:16px; box-shadow:0 20px 50px rgba(0,0,0,0.25); display:none; flex-direction:column; overflow:hidden; z-index:121; }
+        .bot-panel.open { display:flex; }
+        .bot-head { background:var(--cafe-osc); color:#fff; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; }
+        .bot-head .bt { font-family:'Marcellus',serif; font-size:1.05rem; }
+        .bot-head .bs { font-size:0.68rem; color:#D8C7AE; }
+        .bot-close { background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer; line-height:1; }
+        .bot-msgs { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+        .msg { max-width:85%; padding:10px 14px; border-radius:14px; font-size:0.9rem; line-height:1.5; white-space:pre-wrap; }
+        .msg.bot { background:#fff; border:1px solid var(--linea); align-self:flex-start; border-bottom-left-radius:4px; color:var(--texto); }
+        .msg.user { background:var(--cafe); color:#fff; align-self:flex-end; border-bottom-right-radius:4px; }
+        .bot-input { display:flex; gap:8px; padding:12px; border-top:1px solid var(--linea); }
+        .bot-input input { flex:1; border:1px solid var(--linea); border-radius:20px; padding:10px 14px; font-family:'Mulish',sans-serif; font-size:0.9rem; outline:none; background:#fff; }
+        .bot-input button { background:var(--cafe); color:#fff; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; flex:none; display:flex; align-items:center; justify-content:center; }
+        .bot-input button svg { width:18px; height:18px; }
+
+        .modal-overlay,.cart-overlay { position:fixed; inset:0; background:rgba(58,46,37,0.45); display:none; z-index:200; }
+        .modal-overlay.open { display:flex; align-items:center; justify-content:center; padding:24px; }
+        .modal { background:var(--tarjeta); border-radius:16px; max-width:720px; width:100%; position:relative; box-shadow:0 30px 80px rgba(0,0,0,0.3); max-height:90vh; overflow:auto; }
+        .modal-close,.cart-close { background:none; border:none; font-size:1.7rem; line-height:1; cursor:pointer; color:var(--suave); }
+        .modal-close { position:absolute; top:14px; right:18px; z-index:2; }
+        .modal-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; align-items:center; }
+        .modal-foto { background:var(--crema); border-radius:16px 0 0 16px; padding:24px; height:100%; display:flex; align-items:center; }
+        .modal-foto img { width:100%; border-radius:10px; }
+        .modal-info { padding:30px 30px 32px; }
+        .modal-info h3 { font-size:2.1rem; }
+        .modal-price { color:var(--cafe); font-weight:700; font-size:1.35rem; margin:8px 0 14px; font-family:'Mulish',sans-serif; }
+        .modal-info p { color:var(--suave); margin-bottom:20px; }
+        .qty { display:inline-flex; align-items:center; border:1px solid var(--linea); border-radius:6px; overflow:hidden; margin-bottom:20px; }
+        .qty button { background:var(--crema); border:none; width:38px; height:38px; font-size:1.15rem; cursor:pointer; color:var(--cafe-osc); }
+        .qty button:hover { background:var(--crema-2); }
+        .qty span { width:46px; text-align:center; font-weight:700; }
+        .modal-info .btn { display:block; width:100%; }
+
+        .cart-overlay.open { display:block; }
+        .cart-panel { position:absolute; top:0; right:0; height:100%; width:390px; max-width:90%; background:var(--crema); display:flex; flex-direction:column; box-shadow:-10px 0 40px rgba(0,0,0,0.2); transform:translateX(100%); transition:transform 0.3s; }
+        .cart-overlay.open .cart-panel { transform:translateX(0); }
+        .cart-head { display:flex; justify-content:space-between; align-items:center; padding:20px 22px; border-bottom:1px solid var(--linea); }
+        .cart-head h3 { font-size:1.7rem; }
+        .cart-body { flex:1; overflow:auto; padding:14px 22px; }
+        .cart-empty { color:var(--suave); text-align:center; margin-top:50px; }
+        .cart-item { display:flex; gap:12px; align-items:center; padding:14px 0; border-bottom:1px solid var(--linea); }
+        .cart-item > img { width:60px; height:60px; border-radius:10px; object-fit:cover; background:#fff; border:1px solid var(--linea); }
+        .ci-info { flex:1; }
+        .ci-name { font-weight:700; color:var(--cafe-osc); font-size:0.96rem; }
+        .ci-price { color:var(--suave); font-size:0.85rem; margin-bottom:6px; }
+        .cart-item .qty { margin:0; }
+        .cart-item .qty button { width:30px; height:30px; font-size:1rem; }
+        .cart-item .qty span { width:32px; }
+        .ci-remove { background:none; border:none; font-size:1.4rem; color:var(--suave); cursor:pointer; }
+        .cart-foot { padding:18px 22px 24px; border-top:1px solid var(--linea); }
+        .cart-total { display:flex; justify-content:space-between; font-size:1.15rem; margin-bottom:14px; }
+        .cart-total strong { color:var(--cafe-osc); }
+        .cart-foot .btn { width:100%; }
+
+        @media (max-width:880px) {
+            .nosotros .grid { grid-template-columns:1fr; gap:36px; }
+            .intro h1 { font-size:2.3rem; }
+            .valores .grid { grid-template-columns:repeat(2,1fr); gap:30px 18px; }
+            .cabeza h2,.nosotros h2 { font-size:2.2rem; }
+            .banner img { height:58vh; }
+        }
+        @media (max-width:640px) { .modal-grid { grid-template-columns:1fr; } .modal-foto { border-radius:16px 16px 0 0; } .contacto .tarjeta { padding:14px 24px; } }
+        @media (max-width:560px) { .nav-bar { justify-content:center; } nav { justify-content:center; gap:14px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-bar wrap">
+            <a href="#inicio" class="brand"><span class="name">GlowBest Y<span class="amp">&amp;</span>D</span></a>
+            <nav>
+                <a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a>
+                <a href="#productos" data-es="Productos" data-en="Products">Productos</a>
+                <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+                <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+            </nav>
+            <div class="actions">
+                <div class="lang-toggle">
+                    <button id="lang-es" class="active" onclick="setLang('es')">ES</button>
+                    <button id="lang-en" onclick="setLang('en')">EN</button>
+                </div>
+                <button class="cart-btn" onclick="openCart()" aria-label="Carrito">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span id="cart-count" class="badge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="banner">
+        <img src="images/hero.jpg.jpeg" alt="Colección GlowBest Y&D de cuidado natural de la piel">
+    </section>
+
+    <section class="intro">
+        <div class="wrap">
+            <span class="eyebrow" data-es="Artesanal · Natural · Esencial" data-en="Artisanal · Natural · Essential">Artesanal · Natural · Esencial</span>
+            <h1 data-es="Tu mejor versión comienza con el cuidado de tu piel" data-en="Your best self begins with caring for your skin">Tu mejor versión comienza con el cuidado de tu piel</h1>
+            <p class="lead" data-es="Jabones, cremas y aceites hechos a mano en pequeñas tandas, con ingredientes naturales para nutrir, hidratar y realzar tu brillo." data-en="Handmade soaps, creams and oils made in small batches with natural ingredients to nourish, hydrate and enhance your glow.">Jabones, cremas y aceites hechos a mano en pequeñas tandas, con ingredientes naturales para nutrir, hidratar y realzar tu brillo.</p>
+            <div class="acciones">
+                <a href="#productos" class="btn btn-cafe" data-es="Ver productos" data-en="Shop products">Ver productos</a>
+                <a href="#nosotros" class="btn btn-linea" data-es="Conócenos" data-en="Learn more">Conócenos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="valores">
+        <div class="wrap grid">
+            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+                <h4 data-es="Ingredientes naturales" data-en="Natural ingredients">Ingredientes naturales</h4><p data-es="Aceites y extractos de plantas" data-en="Plant oils and extracts">Aceites y extractos de plantas</p></div>
+            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                <h4 data-es="Hecho a mano" data-en="Handmade">Hecho a mano</h4><p data-es="En pequeñas tandas, con amor" data-en="In small batches, with love">En pequeñas tandas, con amor</p></div>
+            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/></svg>
+                <h4 data-es="Limpio y suave" data-en="Clean and gentle">Limpio y suave</h4><p data-es="Cuida hasta la piel sensible" data-en="Cares for sensitive skin too">Cuida hasta la piel sensible</p></div>
+            <div class="valor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"/></svg>
+                <h4 data-es="Brillo natural" data-en="Natural glow">Brillo natural</h4><p data-es="Para una piel sana y radiante" data-en="For healthy, radiant skin">Para una piel sana y radiante</p></div>
+        </div>
+    </section>
+
+    <section id="productos" class="productos">
+        <div class="wrap">
+            <div class="cabeza">
+                <span class="eyebrow" data-es="La colección" data-en="The collection">La colección</span>
+                <h2 data-es="Nuestros productos" data-en="Our products">Nuestros productos</h2>
+                <p data-es="Toca un producto para ver su detalle, el precio y agregarlo al carrito." data-en="Tap a product to see details, price and add it to your cart.">Toca un producto para ver su detalle, el precio y agregarlo al carrito.</p>
+                <div class="linea"></div>
+            </div>
+            <div class="rejilla" id="rejilla"></div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="nosotros">
+        <div class="wrap grid">
+            <div>
+                <span class="eyebrow" data-es="Nuestra historia" data-en="Our story">Nuestra historia</span>
+                <h2 data-es="Sobre GlowBest Y&D" data-en="About GlowBest Y&D">Sobre GlowBest Y&D</h2>
+                <p data-es="En GlowBest Y&D elaboramos productos artesanales para el cuidado de la piel, con ingredientes seleccionados y fórmulas pensadas para brindar hidratación, nutrición y bienestar." data-en="At GlowBest Y&D we craft artisanal skincare products with selected ingredients and formulas designed to provide hydration, nourishment and wellbeing.">En GlowBest Y&D elaboramos productos artesanales para el cuidado de la piel, con ingredientes seleccionados y fórmulas pensadas para brindar hidratación, nutrición y bienestar.</p>
+                <p data-es="Creemos en lo natural, en lo hecho a mano y en el cuidado que respeta tu piel y al planeta. Cada producto nace en pequeñas tandas, con dedicación." data-en="We believe in natural, handmade care that respects your skin and the planet. Every product is made in small batches, with dedication.">Creemos en lo natural, en lo hecho a mano y en el cuidado que respeta tu piel y al planeta. Cada producto nace en pequeñas tandas, con dedicación.</p>
+            </div>
+            <div><p class="quote" data-es="Cuidado que realza tu brillo natural — hecho a mano, con amor." data-en="Skincare that enhances your natural glow — handmade, with love.">Cuidado que realza tu brillo natural — hecho a mano, con amor.</p></div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <div class="wrap">
+            <div class="cabeza">
+                <span class="eyebrow" data-es="Hablemos" data-en="Let's talk">Hablemos</span>
+                <h2 data-es="Contáctanos" data-en="Contact us">Contáctanos</h2>
+                <p data-es="Escríbenos o llámanos para hacer tu pedido o resolver cualquier duda." data-en="Message or call us to place your order or ask anything.">Escríbenos o llámanos para hacer tu pedido o resolver cualquier duda.</p>
+                <div class="linea"></div>
+            </div>
+            <div class="tarjeta">
+                <div class="c-row">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
+                    <div><div class="c-label">WhatsApp</div><div class="c-val"><a href="https://wa.me/18633380581">(863) 338-0581</a></div></div>
+                </div>
+                <div class="c-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div><div class="c-label" data-es="Llamar" data-en="Call">Llamar</div><div class="c-val"><a href="tel:+18633380581">+1 (863) 338-0581</a></div></div>
+                </div>
+                <div class="c-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                    <div><div class="c-label">Email</div><div class="c-val"><a href="mailto:glowbestyd8996@gmail.com">glowbestyd8996@gmail.com</a></div></div>
+                </div>
+                <div class="c-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+                    <div><div class="c-label">Instagram</div><div class="c-val"><a href="https://www.instagram.com/yarenitagonzalez">@yarenitagonzalez</a></div></div>
+                </div>
+                <div class="c-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div><div class="c-label" data-es="Ubicación" data-en="Location">Ubicación</div><div class="c-val">Miami, Florida</div></div>
+                </div>
+            </div>
+            <div class="botones">
+                <a href="https://wa.me/18633380581" class="btn btn-cafe" data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
+                <a href="tel:+18633380581" class="btn btn-linea" data-es="Llamar ahora" data-en="Call now">Llamar ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <div class="name">GlowBest Y<span class="amp">&amp;</span>D</div>
+            <div class="tag" data-es="Cuidado artesanal para tu piel" data-en="Artisan skincare for you">Cuidado artesanal para tu piel</div>
+            <div class="social">
+                <a href="https://www.instagram.com/yarenitagonzalez" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+                <a href="https://wa.me/18633380581" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg></a>
+                <a href="mailto:glowbestyd8996@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+            </div>
+            <div class="links">
+                <a href="#productos" data-es="Productos" data-en="Products">Productos</a>
+                <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+                <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+            </div>
+            <div class="copy">© 2026 GlowBest Y&D · Miami, Florida</div>
+        </div>
+    </footer>
+
+    <a class="wa-float" href="https://wa.me/18633380581" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-.9-1.1-1.3-1.7-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.1 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.6.3-.6.6-.9 1.4-.9 2.2.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 6.8 3.7"/></svg>
+    </a>
+
+    <button class="bot-btn" id="bot-btn" onclick="toggleBot()" aria-label="Asistente virtual">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>
+    </button>
+    <div class="bot-panel" id="bot-panel">
+        <div class="bot-head">
+            <div><div class="bt">Asistente GlowBest</div><div class="bs" data-es="Pregúntame sobre los productos" data-en="Ask me about the products">Pregúntame sobre los productos</div></div>
+            <button class="bot-close" onclick="toggleBot()" aria-label="Cerrar">×</button>
+        </div>
+        <div class="bot-msgs" id="bot-msgs"></div>
+        <div class="bot-input">
+            <input id="bot-text" type="text" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')botSend()">
+            <button onclick="botSend()" aria-label="Enviar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-grid">
+                <div class="modal-foto"><img id="m-img" src="" alt=""></div>
+                <div class="modal-info">
+                    <h3 id="m-name"></h3>
+                    <div class="modal-price" id="m-price"></div>
+                    <p id="m-desc"></p>
+                    <div class="qty"><button onclick="modalQtyChange(-1)">−</button><span id="m-qty">1</span><button onclick="modalQtyChange(1)">+</button></div>
+                    <button class="btn btn-cafe" id="m-add" onclick="addFromModal()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-overlay" id="cart">
+        <div class="cart-panel">
+            <div class="cart-head"><h3 id="cart-title"></h3><button class="cart-close" onclick="closeCart()">×</button></div>
+            <div class="cart-body" id="cart-body"></div>
+            <div class="cart-foot" id="cart-foot" style="display:none;">
+                <div class="cart-total"><span id="cart-total-label"></span> <strong id="cart-total-val"></strong></div>
+                <button class="btn btn-cafe" id="cart-checkout" onclick="checkout()"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var WA = '18633380581';
+
+        /* ====== ASISTENTE VIRTUAL (Gemini) ======
+           1) Consigue tu clave gratis en https://aistudio.google.com  ("Get API key")
+           2) Pega la clave entre las comillas de GEMINI_API_KEY.
+           IMPORTANTE: en una pagina publica la clave queda a la vista. Restringela en
+           Google AI Studio a "Generative Language API" y a tu sitio, y pon un limite de
+           gasto. Lo mas seguro es usar un pequeno servidor intermedio (ver chat). */
+        var GEMINI_API_KEY = '';
+        var GEMINI_MODEL = 'gemini-2.5-flash';
+
+        /* ====== LISTA DE PRODUCTOS (edita nombre, descripcion y PRECIO) ======
+           "precio": pon el numero, ej. 8.50. Si lo dejas en 0 muestra "Precio a consultar". */
+        var productos = [
+            { id:'syndet', img:'images/syndet.jpg.jpeg', precio:0,
+              nombre:{es:'Syndet Bar', en:'Syndet Bar'}, desc:{es:'Limpieza suave para la piel.', en:'Gentle cleansing for the skin.'},
+              detalle:{es:'Barra limpiadora suave que respeta el manto natural de la piel. Ideal para uso diario en rostro y cuerpo, incluso en pieles sensibles.', en:'A gentle cleansing bar that respects the skin\'s natural barrier. Perfect for daily use on face and body, even for sensitive skin.'} },
+            { id:'bodycream', img:'images/bodycream.jpg.jpeg', precio:0,
+              nombre:{es:'Body Cream', en:'Body Cream'}, desc:{es:'Crema corporal hidratante.', en:'Hydrating body cream.'},
+              detalle:{es:'Crema corporal de absorción rápida que hidrata en profundidad y deja la piel suave y nutrida durante todo el día.', en:'Fast-absorbing body cream that deeply hydrates and leaves skin soft and nourished all day.'} },
+            { id:'scrub', img:'images/scrub.jpg.jpeg', precio:0,
+              nombre:{es:'Sugar Scrub', en:'Sugar Scrub'}, desc:{es:'Exfoliante corporal de azúcar.', en:'Sugar body scrub.'},
+              detalle:{es:'Exfoliante de azúcar natural que elimina células muertas y deja la piel suave, luminosa y lista para hidratar.', en:'Natural sugar scrub that removes dead skin and leaves your skin smooth, glowing and ready to moisturize.'} },
+            { id:'oil', img:'images/oil.jpg.jpeg', precio:0,
+              nombre:{es:'Body Oil', en:'Body Oil'}, desc:{es:'Aceite corporal nutritivo e hidratante.', en:'Nourishing & hydrating body oil.'},
+              detalle:{es:'Aceite corporal ligero que nutre e hidrata, aportando brillo natural sin sensación grasosa.', en:'Lightweight body oil that nourishes and hydrates, adding a natural glow without feeling greasy.'} },
+            { id:'facial', img:'images/facial.jpg.jpeg', precio:0,
+              nombre:{es:'Facial Bar', en:'Facial Bar'}, desc:{es:'Limpieza suave para el rostro.', en:'Gentle facial cleansing bar.'},
+              detalle:{es:'Barra facial suave que limpia, equilibra y refresca el rostro, dejándolo fresco y cuidado.', en:'Gentle facial bar that cleanses, balances and refreshes your face, leaving it fresh and cared for.'} },
+            { id:'kit', img:'images/kit.jpg.jpeg', precio:0,
+              nombre:{es:'GlowBest Complete Kit', en:'GlowBest Complete Kit'}, desc:{es:'La colección completa para el cuidado de la piel.', en:'The complete skincare collection.'},
+              detalle:{es:'Nuestra colección completa: la rutina ideal para limpiar, exfoliar, hidratar y nutrir tu piel de principio a fin.', en:'Our full collection: the ideal routine to cleanse, exfoliate, hydrate and nourish your skin from start to finish.'} }
+        ];
+
+        var T = {
+            es:{ viewProduct:'Ver producto', addToCart:'Agregar al carrito', onRequest:'Precio a consultar', cartTitle:'Tu carrito', empty:'Tu carrito está vacío', total:'Total', checkout:'Finalizar pedido por WhatsApp', orderHi:'Hola GlowBest Y&D, quiero hacer este pedido:' },
+            en:{ viewProduct:'View product', addToCart:'Add to cart', onRequest:'Price on request', cartTitle:'Your cart', empty:'Your cart is empty', total:'Total', checkout:'Checkout via WhatsApp', orderHi:'Hi GlowBest Y&D, I would like to order:' }
+        };
+
+        var lang='es', cart=[], modalId=null, modalQty=1;
+        function money(n){ return '$'+Number(n).toFixed(2); }
+        function priceText(n){ return n>0 ? money(n) : T[lang].onRequest; }
+        function find(id){ return productos.find(function(x){ return x.id===id; }); }
+
+        function renderProducts(){
+            document.getElementById('rejilla').innerHTML = productos.map(function(p){
+                return '<div class="card">'+
+                  '<div class="foto" onclick="openProduct(\''+p.id+'\')"><img src="'+p.img+'" alt="'+p.nombre[lang]+'" loading="lazy"></div>'+
+                  '<div class="card-body">'+
+                    '<h3>'+p.nombre[lang]+'</h3><p>'+p.desc[lang]+'</p>'+
+                    '<div class="precio-row"><span class="precio">'+priceText(p.precio)+'</span>'+
+                    '<button class="btn btn-cafe" onclick="openProduct(\''+p.id+'\')">'+T[lang].viewProduct+'</button></div>'+
+                  '</div>'+
+                '</div>';
+            }).join('');
+            applyReveal();
+        }
+
+        function openProduct(id){
+            var p=find(id); modalId=id; modalQty=1;
+            document.getElementById('m-img').src=p.img;
+            document.getElementById('m-img').alt=p.nombre[lang];
+            document.getElementById('m-name').textContent=p.nombre[lang];
+            document.getElementById('m-price').textContent=priceText(p.precio);
+            document.getElementById('m-desc').textContent=p.detalle[lang];
+            document.getElementById('m-qty').textContent=modalQty;
+            document.getElementById('m-add').textContent=T[lang].addToCart;
+            document.getElementById('modal').classList.add('open'); document.body.style.overflow='hidden';
+        }
+        function closeModal(){ document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; }
+        function modalQtyChange(d){ modalQty=Math.max(1,modalQty+d); document.getElementById('m-qty').textContent=modalQty; }
+        function addFromModal(){ addToCart(modalId,modalQty); closeModal(); openCart(); }
+        function addToCart(id,qty){ var i=cart.find(function(c){return c.id===id;}); if(i){i.qty+=qty;}else{cart.push({id:id,qty:qty});} updateBadge(); }
+        function cartCount(){ return cart.reduce(function(s,c){return s+c.qty;},0); }
+        function cartTotal(){ return cart.reduce(function(s,c){return s+(find(c.id).precio||0)*c.qty;},0); }
+        function updateBadge(){ var n=cartCount(), b=document.getElementById('cart-count'); b.textContent=n; b.style.display=n>0?'flex':'none'; }
+        function renderCart(){
+            document.getElementById('cart-title').textContent=T[lang].cartTitle;
+            var body=document.getElementById('cart-body');
+            if(cart.length===0){ body.innerHTML='<p class="cart-empty">'+T[lang].empty+'</p>'; document.getElementById('cart-foot').style.display='none'; return; }
+            document.getElementById('cart-foot').style.display='block';
+            body.innerHTML=cart.map(function(c){ var p=find(c.id);
+                return '<div class="cart-item"><img src="'+p.img+'" alt="">'+
+                  '<div class="ci-info"><div class="ci-name">'+p.nombre[lang]+'</div>'+
+                  '<div class="ci-price">'+priceText(p.precio)+'</div>'+
+                  '<div class="qty"><button onclick="changeQty(\''+c.id+'\',-1)">−</button><span>'+c.qty+'</span><button onclick="changeQty(\''+c.id+'\',1)">+</button></div></div>'+
+                  '<button class="ci-remove" onclick="removeItem(\''+c.id+'\')">×</button></div>';
+            }).join('');
+            document.getElementById('cart-total-label').textContent=T[lang].total;
+            document.getElementById('cart-total-val').textContent=cartTotal()>0?money(cartTotal()):T[lang].onRequest;
+            document.getElementById('cart-checkout').textContent=T[lang].checkout;
+        }
+        function changeQty(id,d){ var c=cart.find(function(x){return x.id===id;}); if(!c)return; c.qty+=d; if(c.qty<=0){cart=cart.filter(function(x){return x.id!==id;});} updateBadge(); renderCart(); }
+        function removeItem(id){ cart=cart.filter(function(x){return x.id!==id;}); updateBadge(); renderCart(); }
+        function openCart(){ renderCart(); document.getElementById('cart').classList.add('open'); document.body.style.overflow='hidden'; }
+        function closeCart(){ document.getElementById('cart').classList.remove('open'); document.body.style.overflow=''; }
+        function checkout(){
+            if(cart.length===0) return;
+            var msg=T[lang].orderHi+'\n';
+            cart.forEach(function(c){ var p=find(c.id); var pr=p.precio>0?' ('+money(p.precio)+')':''; msg+='• '+c.qty+'x '+p.nombre[lang]+pr+'\n'; });
+            if(cartTotal()>0){ msg+=T[lang].total+': '+money(cartTotal()); }
+            window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+        }
+        function setLang(l){
+            lang=l; document.documentElement.lang=l;
+            document.querySelectorAll('[data-es]').forEach(function(el){ el.textContent=el.getAttribute('data-'+l); });
+            document.getElementById('lang-es').classList.toggle('active',l==='es');
+            document.getElementById('lang-en').classList.toggle('active',l==='en');
             renderProducts(); renderCart();
             if(document.getElementById('modal').classList.contains('open') && modalId){ openProduct(modalId); }
         }
 
-        /* ===== Foco accesible para ventanas (modal / carrito) ===== */
-        function focusable(container){
-            return Array.prototype.filter.call(
-                container.querySelectorAll('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])'),
-                function(el){ return el.offsetParent !== null; }
-            );
-        }
-        function focusFirst(container){ var f=focusable(container); if(f.length) f[0].focus(); }
-        function restoreFocus(){ if(lastFocus && lastFocus.focus){ lastFocus.focus(); } lastFocus=null; }
-        function trapFocus(e){
-            var open = document.querySelector('.modal-overlay.open, .cart-overlay.open');
-            if(!open || e.key !== 'Tab') return;
-            var f=focusable(open); if(!f.length) return;
-            var first=f[0], last=f[f.length-1];
-            if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
-            else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
-        }
-
-        /* ===== Asistente virtual ===== */
+        /* asistente virtual */
         var botHistory = [];
         function botContext(){
             var info = productos.map(function(p){
@@ -32,9 +491,8 @@ vte('aria-pressed', l==='en');
             return 'Eres el asistente virtual de GlowBest Y&D, una marca artesanal de jabones, cremas y aceites para el cuidado de la piel en Miami, Florida. Responde de forma amable, breve y calida. Habla solo de los productos, ingredientes, cuidado de la piel y la marca. Si un precio aparece como "a consultar", invita a escribir por WhatsApp al (863) 338-0581. Responde en el mismo idioma en que te escriban. No inventes productos ni precios. Productos:\n'+info+'\nContacto: WhatsApp (863) 338-0581, Instagram @yarenitagonzalez, email glowbestyd8996@gmail.com.';
         }
         function toggleBot(){
-            var p=document.getElementById('bot-panel'); var open=p.classList.toggle('open');
-            document.getElementById('bot-btn').setAttribute('aria-expanded', open);
-            if(open){
+            var p=document.getElementById('bot-panel'); p.classList.toggle('open');
+            if(p.classList.contains('open')){
                 document.getElementById('bot-text').focus();
                 if(botHistory.length===0){ addBotMsg(lang==='es'?'¡Hola! Soy el asistente de GlowBest. ¿En qué puedo ayudarte con nuestros productos?':'Hi! I am the GlowBest assistant. How can I help you with our products?','bot'); }
             }
@@ -57,48 +515,29 @@ vte('aria-pressed', l==='en');
             }).catch(function(){ typing.textContent=(lang==='es'?'Hubo un problema de conexión. Intenta de nuevo.':'Connection problem. Please try again.'); });
         }
 
-        /* ===== Animaciones suaves al hacer scroll ===== */
+        /* animaciones suaves al hacer scroll */
         document.documentElement.classList.add('js');
         var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
             entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
         }, { threshold:0.12 }) : null;
         function applyReveal(){
             if(!io) return;
-            document.querySelectorAll('.valor,.cabeza,.card,.quote,.paso').forEach(function(el){
+            document.querySelectorAll('.valor,.cabeza,.card,.quote,.intro h1,.intro p.lead').forEach(function(el){
                 if(!el.classList.contains('reveal')){ el.classList.add('reveal'); io.observe(el); }
             });
         }
 
         document.getElementById('modal').addEventListener('click',function(e){ if(e.target.id==='modal') closeModal(); });
         document.getElementById('cart').addEventListener('click',function(e){ if(e.target.id==='cart') closeCart(); });
-        document.addEventListener('keydown',function(e){
-            if(e.key==='Escape'){ closeModal(); closeCart(); if(document.querySelector('header').classList.contains('nav-open')) toggleMenu(); }
-            trapFocus(e);
-        });
-
-        /* ===== Menu movil, botones flotantes, sombra de header, link activo ===== */
+        document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeModal(); closeCart(); } });
+        /* mostrar/ocultar boton de WhatsApp al hacer scroll + sombra de header + menu activo */
         var waFloat = document.querySelector('.wa-float');
-        var botBtn = document.getElementById('bot-btn');
-        var toTopBtn = document.getElementById('to-top');
         var headerEl = document.querySelector('header');
-        var menuToggleBtn = document.getElementById('menu-toggle');
         var navLinks = [].slice.call(document.querySelectorAll('nav a[href^="#"]'));
         var navSections = navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-
-        function toggleMenu(){
-            var open = headerEl.classList.toggle('nav-open');
-            menuToggleBtn.setAttribute('aria-expanded', open);
-            menuToggleBtn.setAttribute('aria-label', open ? T[lang].closeMenu : T[lang].openMenu);
-        }
-        function scrollTop(){ window.scrollTo({ top:0, behavior:'smooth' }); }
-        navLinks.forEach(function(a){ a.addEventListener('click', function(){ if(headerEl.classList.contains('nav-open')) toggleMenu(); }); });
-
         function onScroll(){
             var y = window.scrollY || window.pageYOffset || 0;
-            var show = y > 320;
-            if(waFloat){ waFloat.classList.toggle('show', show); }
-            if(botBtn){ botBtn.classList.toggle('show', show); }
-            if(toTopBtn){ toTopBtn.classList.toggle('show', show); }
+            if(waFloat){ waFloat.classList.toggle('show', y > 320); }
             if(headerEl){ headerEl.classList.toggle('scrolled', y > 20); }
             var idx = -1;
             for(var i=0;i<navSections.length;i++){ var s=navSections[i]; if(s && s.getBoundingClientRect().top <= 130) idx=i; }
@@ -107,8 +546,7 @@ vte('aria-pressed', l==='en');
         window.addEventListener('scroll', onScroll, { passive:true });
         onScroll();
 
-        document.getElementById('year').textContent = new Date().getFullYear();
-        setLang(lang); updateBadge(); applyReveal();
+        setLang('es'); updateBadge(); applyReveal();
     </script>
 </body>
 </html>
